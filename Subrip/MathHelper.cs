@@ -65,7 +65,7 @@ namespace Subrip
 
 		//Parece ser que los minimos son siempre 0 ¿?
 
-		public static long BuscarMinimo(int[] MinColumnValue, long starts, long end, long StartMax)
+		public static long MinValue(int[] MinColumnValue, long starts, long end, long StartMax)
 		{
 			long Min = StartMax;
 
@@ -81,7 +81,7 @@ namespace Subrip
 			return Min;
 		}
 
-		public static long BuscarMaximo(int[] MaxColumnValue, long starts, long end)
+		public static long MaxValue(int[] MaxColumnValue, long starts, long end)
 		{
 			long Max = 0;
 

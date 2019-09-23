@@ -8,3 +8,4 @@ C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.csproj.GenerateResour
 C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.csproj.CoreCompileInputs.cache
 C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.exe
 C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.pdb
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.csprojAssemblyReference.cache

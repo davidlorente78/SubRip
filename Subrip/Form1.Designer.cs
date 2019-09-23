@@ -111,7 +111,7 @@
 			// 
 			this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox1.Location = new System.Drawing.Point(11, 115);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(450, 82);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -121,7 +121,7 @@
 			// button1
 			// 
 			this.button1.Location = new System.Drawing.Point(316, 55);
-			this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button1.Margin = new System.Windows.Forms.Padding(2);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(56, 19);
 			this.button1.TabIndex = 1;
@@ -137,7 +137,7 @@
             0,
             0});
 			this.numericUpDownTop.Location = new System.Drawing.Point(9, 29);
-			this.numericUpDownTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownTop.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownTop.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -147,7 +147,7 @@
 			this.numericUpDownTop.Size = new System.Drawing.Size(54, 20);
 			this.numericUpDownTop.TabIndex = 2;
 			this.numericUpDownTop.Value = new decimal(new int[] {
-            800,
+            900,
             0,
             0,
             0});
@@ -161,7 +161,7 @@
             0,
             0});
 			this.numericUpDownLeft.Location = new System.Drawing.Point(68, 30);
-			this.numericUpDownLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownLeft.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownLeft.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -170,11 +170,6 @@
 			this.numericUpDownLeft.Name = "numericUpDownLeft";
 			this.numericUpDownLeft.Size = new System.Drawing.Size(54, 20);
 			this.numericUpDownLeft.TabIndex = 3;
-			this.numericUpDownLeft.Value = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
 			// 
 			// numericUpDownSizex
 			// 
@@ -184,7 +179,7 @@
             0,
             0});
 			this.numericUpDownSizex.Location = new System.Drawing.Point(127, 30);
-			this.numericUpDownSizex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownSizex.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownSizex.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -194,7 +189,7 @@
 			this.numericUpDownSizex.Size = new System.Drawing.Size(57, 20);
 			this.numericUpDownSizex.TabIndex = 4;
 			this.numericUpDownSizex.Value = new decimal(new int[] {
-            600,
+            450,
             0,
             0,
             0});
@@ -207,7 +202,7 @@
             0,
             0});
 			this.numericUpDownSizey.Location = new System.Drawing.Point(188, 30);
-			this.numericUpDownSizey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownSizey.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownSizey.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -217,7 +212,7 @@
 			this.numericUpDownSizey.Size = new System.Drawing.Size(57, 20);
 			this.numericUpDownSizey.TabIndex = 5;
 			this.numericUpDownSizey.Value = new decimal(new int[] {
-            100,
+            80,
             0,
             0,
             0});
@@ -225,7 +220,7 @@
 			// button2
 			// 
 			this.button2.Location = new System.Drawing.Point(316, 29);
-			this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button2.Margin = new System.Windows.Forms.Padding(2);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(56, 19);
 			this.button2.TabIndex = 6;
@@ -246,7 +241,7 @@
             0,
             0});
 			this.numericUpDownInterval.Location = new System.Drawing.Point(255, 29);
-			this.numericUpDownInterval.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownInterval.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownInterval.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -265,7 +260,7 @@
 			// textBoxIndex
 			// 
 			this.textBoxIndex.Location = new System.Drawing.Point(246, 77);
-			this.textBoxIndex.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBoxIndex.Margin = new System.Windows.Forms.Padding(2);
 			this.textBoxIndex.Name = "textBoxIndex";
 			this.textBoxIndex.Size = new System.Drawing.Size(57, 20);
 			this.textBoxIndex.TabIndex = 8;
@@ -274,7 +269,7 @@
 			// button3
 			// 
 			this.button3.Location = new System.Drawing.Point(376, 55);
-			this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button3.Margin = new System.Windows.Forms.Padding(2);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(56, 19);
 			this.button3.TabIndex = 9;
@@ -286,7 +281,7 @@
 			// 
 			this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox2.Location = new System.Drawing.Point(11, 202);
-			this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox2.Name = "pictureBox2";
 			this.pictureBox2.Size = new System.Drawing.Size(450, 82);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -302,7 +297,7 @@
             0,
             0});
 			this.numericUpDownColorMargin.Location = new System.Drawing.Point(384, 28);
-			this.numericUpDownColorMargin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownColorMargin.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownColorMargin.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -320,7 +315,7 @@
 			// textBoxFile
 			// 
 			this.textBoxFile.Location = new System.Drawing.Point(12, 78);
-			this.textBoxFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBoxFile.Margin = new System.Windows.Forms.Padding(2);
 			this.textBoxFile.Name = "textBoxFile";
 			this.textBoxFile.Size = new System.Drawing.Size(230, 20);
 			this.textBoxFile.TabIndex = 12;
@@ -332,13 +327,13 @@
 			chartArea1.Name = "ChartArea1";
 			this.chart1.ChartAreas.Add(chartArea1);
 			this.chart1.Location = new System.Drawing.Point(600, 115);
-			this.chart1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.chart1.Margin = new System.Windows.Forms.Padding(2);
 			this.chart1.Name = "chart1";
 			series1.ChartArea = "ChartArea1";
 			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 			series1.Name = "X";
 			this.chart1.Series.Add(series1);
-			this.chart1.Size = new System.Drawing.Size(496, 122);
+			this.chart1.Size = new System.Drawing.Size(495, 82);
 			this.chart1.TabIndex = 13;
 			this.chart1.Text = "chart1";
 			// 
@@ -346,7 +341,7 @@
 			// 
 			this.checkBoxSave.AutoSize = true;
 			this.checkBoxSave.Location = new System.Drawing.Point(195, 58);
-			this.checkBoxSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.checkBoxSave.Margin = new System.Windows.Forms.Padding(2);
 			this.checkBoxSave.Name = "checkBoxSave";
 			this.checkBoxSave.Size = new System.Drawing.Size(51, 17);
 			this.checkBoxSave.TabIndex = 14;
@@ -358,20 +353,20 @@
 			chartArea2.Name = "ChartArea1";
 			this.chart2.ChartAreas.Add(chartArea2);
 			this.chart2.Location = new System.Drawing.Point(476, 115);
-			this.chart2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.chart2.Margin = new System.Windows.Forms.Padding(2);
 			this.chart2.Name = "chart2";
 			series2.ChartArea = "ChartArea1";
 			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
 			series2.Name = "Y";
 			this.chart2.Series.Add(series2);
-			this.chart2.Size = new System.Drawing.Size(112, 122);
+			this.chart2.Size = new System.Drawing.Size(84, 82);
 			this.chart2.TabIndex = 15;
 			this.chart2.Text = "chart2";
 			// 
 			// button4
 			// 
 			this.button4.Location = new System.Drawing.Point(316, 77);
-			this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button4.Margin = new System.Windows.Forms.Padding(2);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(56, 19);
 			this.button4.TabIndex = 17;
@@ -381,7 +376,7 @@
 			// button5
 			// 
 			this.button5.Location = new System.Drawing.Point(376, 77);
-			this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.button5.Margin = new System.Windows.Forms.Padding(2);
 			this.button5.Name = "button5";
 			this.button5.Size = new System.Drawing.Size(56, 19);
 			this.button5.TabIndex = 18;
@@ -392,7 +387,7 @@
 			// textBoxProcessInfo
 			// 
 			this.textBoxProcessInfo.Location = new System.Drawing.Point(668, 246);
-			this.textBoxProcessInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBoxProcessInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.textBoxProcessInfo.Name = "textBoxProcessInfo";
 			this.textBoxProcessInfo.Size = new System.Drawing.Size(428, 20);
 			this.textBoxProcessInfo.TabIndex = 19;
@@ -400,7 +395,7 @@
 			// textBoxHorizontalInfo
 			// 
 			this.textBoxHorizontalInfo.Location = new System.Drawing.Point(477, 246);
-			this.textBoxHorizontalInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBoxHorizontalInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.textBoxHorizontalInfo.Name = "textBoxHorizontalInfo";
 			this.textBoxHorizontalInfo.Size = new System.Drawing.Size(180, 20);
 			this.textBoxHorizontalInfo.TabIndex = 20;
@@ -412,7 +407,7 @@
             "Screen 1",
             "Screen 2"});
 			this.comboBoxScreen.Location = new System.Drawing.Point(442, 77);
-			this.comboBoxScreen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.comboBoxScreen.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxScreen.Name = "comboBoxScreen";
 			this.comboBoxScreen.Size = new System.Drawing.Size(104, 21);
 			this.comboBoxScreen.TabIndex = 22;
@@ -511,7 +506,7 @@
 			// 
 			this.numericUpDownDistance.ImeMode = System.Windows.Forms.ImeMode.Off;
 			this.numericUpDownDistance.Location = new System.Drawing.Point(446, 28);
-			this.numericUpDownDistance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownDistance.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownDistance.Maximum = new decimal(new int[] {
             20,
             0,
@@ -530,7 +525,7 @@
 			// panel1
 			// 
 			this.panel1.Location = new System.Drawing.Point(479, 293);
-			this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.panel1.Margin = new System.Windows.Forms.Padding(2);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(616, 73);
 			this.panel1.TabIndex = 34;
@@ -539,7 +534,7 @@
 			// 
 			this.pictureBoxGrouped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBoxGrouped.Location = new System.Drawing.Point(11, 288);
-			this.pictureBoxGrouped.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBoxGrouped.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBoxGrouped.Name = "pictureBoxGrouped";
 			this.pictureBoxGrouped.Size = new System.Drawing.Size(450, 82);
 			this.pictureBoxGrouped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -566,7 +561,7 @@
             0,
             131072});
 			this.numericUpDownRatioTh.Location = new System.Drawing.Point(514, 28);
-			this.numericUpDownRatioTh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownRatioTh.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownRatioTh.Maximum = new decimal(new int[] {
             1,
             0,
@@ -601,7 +596,7 @@
             0,
             131072});
 			this.numericUpDownCorrelatiopnTh.Location = new System.Drawing.Point(581, 28);
-			this.numericUpDownCorrelatiopnTh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownCorrelatiopnTh.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownCorrelatiopnTh.Maximum = new decimal(new int[] {
             1,
             0,
@@ -630,7 +625,7 @@
 			// 
 			this.numericUpDownFontSize.ImeMode = System.Windows.Forms.ImeMode.Off;
 			this.numericUpDownFontSize.Location = new System.Drawing.Point(656, 28);
-			this.numericUpDownFontSize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.numericUpDownFontSize.Margin = new System.Windows.Forms.Padding(2);
 			this.numericUpDownFontSize.Maximum = new decimal(new int[] {
             20,
             0,
@@ -648,7 +643,7 @@
 			// textBox1
 			// 
 			this.textBox1.Location = new System.Drawing.Point(477, 267);
-			this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(180, 20);
 			this.textBox1.TabIndex = 43;
@@ -656,7 +651,7 @@
 			// textBox2
 			// 
 			this.textBox2.Location = new System.Drawing.Point(668, 267);
-			this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(428, 20);
 			this.textBox2.TabIndex = 42;
@@ -665,7 +660,7 @@
 			// 
 			this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox3.Location = new System.Drawing.Point(741, 7);
-			this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox3.Name = "pictureBox3";
 			this.pictureBox3.Size = new System.Drawing.Size(60, 65);
 			this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -676,7 +671,7 @@
 			// 
 			this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox4.Location = new System.Drawing.Point(817, 7);
-			this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox4.Name = "pictureBox4";
 			this.pictureBox4.Size = new System.Drawing.Size(60, 65);
 			this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -690,7 +685,7 @@
 			// textBox3
 			// 
 			this.textBox3.Location = new System.Drawing.Point(742, 77);
-			this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox3.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(60, 20);
 			this.textBox3.TabIndex = 46;
@@ -699,7 +694,7 @@
 			// textBox5
 			// 
 			this.textBox5.Location = new System.Drawing.Point(817, 77);
-			this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox5.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(60, 20);
 			this.textBox5.TabIndex = 48;
@@ -707,7 +702,7 @@
 			// textBox4
 			// 
 			this.textBox4.Location = new System.Drawing.Point(887, 76);
-			this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox4.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(60, 20);
 			this.textBox4.TabIndex = 52;
@@ -715,7 +710,7 @@
 			// textBox6
 			// 
 			this.textBox6.Location = new System.Drawing.Point(958, 76);
-			this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.textBox6.Margin = new System.Windows.Forms.Padding(2);
 			this.textBox6.Name = "textBox6";
 			this.textBox6.Size = new System.Drawing.Size(61, 20);
 			this.textBox6.TabIndex = 51;
@@ -724,7 +719,7 @@
 			// 
 			this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox5.Location = new System.Drawing.Point(887, 6);
-			this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox5.Name = "pictureBox5";
 			this.pictureBox5.Size = new System.Drawing.Size(60, 65);
 			this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -735,7 +730,7 @@
 			// 
 			this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.pictureBox6.Location = new System.Drawing.Point(958, 6);
-			this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox6.Name = "pictureBox6";
 			this.pictureBox6.Size = new System.Drawing.Size(60, 65);
 			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -797,7 +792,7 @@
 			this.Controls.Add(this.numericUpDownTop);
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.pictureBox1);
-			this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "SubRip";

@@ -18,11 +18,10 @@ namespace Subrip
         Char CaracterToDetect = '晚';
 
         Int32 Index = 0;
-        Color SelectedColor = Color.White;
+        Color SelectedColor = Color.Black;
         Int64 [] Ranges = new Int64[1000];
        
         Int32 numseg = 0; //Cursor para pintar en el panel 1 los detectados
-
         public Form1()
         {
             InitializeComponent();                              
@@ -63,8 +62,7 @@ namespace Subrip
           
             foreach (Segment s in Segments)
             {
-                Point p = new Point(Convert.ToInt32(s.Starts), Convert.ToInt32( s.MinValue));
-                               
+                Point p = new Point(Convert.ToInt32(s.Starts), Convert.ToInt32( s.MinValue));                               
                 Size size = new Size(Convert.ToInt32(s.End - s.Starts), Convert.ToInt32(Convert.ToInt32(s.MaxValue - s.MinValue)));
                 Rectangle rec = new Rectangle(p, size);                        
                 graphic.DrawRectangle(pen, rec);
@@ -77,8 +75,27 @@ namespace Subrip
 
         }
 
+		private List<Bitmap> ExtractCropBitmaps(List<Segment> Segments, Bitmap bitmap)
+		{
+			List<Bitmap> cropped = new List<Bitmap>();
 
-        private void timer1_Tick(object sender, EventArgs e)
+			foreach (Segment s in Segments)
+			{
+				Point p = new Point(Convert.ToInt32(s.Starts), Convert.ToInt32(s.MinValue));
+				Size size = new Size(Convert.ToInt32(s.End - s.Starts), Convert.ToInt32(Convert.ToInt32(s.MaxValue - s.MinValue)));
+				Rectangle rec = new Rectangle(p, size);
+
+
+				cropped.Add(bitmap.Clone(rec, PixelFormat.Format64bppArgb));
+			}
+
+			return cropped;
+		}
+
+		
+
+
+		private void timer1_Tick(object sender, EventArgs e)
         {
             Process();
 
@@ -113,20 +130,16 @@ namespace Subrip
 				{
 					//Prueba con el primer segmento detectado
 					//Segmento GroupedSeg = GroupedSegments[0];
-
-					//Igual que cuando se dibujan los rectangulos alrededor de los segmentos
-					Point p = new Point(Convert.ToInt32(GroupedSeg.Starts), Convert.ToInt32(GroupedSeg.MinValue));
-
+					
+					Point p = new Point(Convert.ToInt32(GroupedSeg.Starts), Convert.ToInt32(GroupedSeg.MinValue));					
 					Size size = new Size(Convert.ToInt32(GroupedSeg.End - GroupedSeg.Starts), Convert.ToInt32(GroupedSeg.MaxValue - GroupedSeg.MinValue));
-					Rectangle sourceRectangle = new Rectangle(p, size);
-
-					Int32 fontPoints = Convert.ToInt32(numericUpDownFontSize.Value);
-
-					//El metodo Clone si se realiza fuera de los limites del Bitmap da mensaje de OUT of Memory
+					Rectangle sourceRectangle = new Rectangle(p, size);					
 					Bitmap CropCaracter = BitOut.Clone(sourceRectangle, PixelFormat.Format64bppArgb);
 					croppedBitmaps.Add(CropCaracter);
 
-
+					Int32 fontPoints = Convert.ToInt32(numericUpDownFontSize.Value);
+					
+					//////EVALUATE
 					Bitmap bitmapNormalized = new Bitmap(ResizeImage(CropCaracter, fontPoints));								
 
 					Int64[] NormalizedCaracterVerticalProjection = new Int64[bitmapNormalized.Width];
@@ -140,7 +153,10 @@ namespace Subrip
 					Int64[] outHorizontalProjectionCaracter = new Int64[bitmapNormalized.Width];
 
 					Projection projectionBitmapChar = ProjectionService.GenerateProjectionfromFontChar('晚', size, fontPoints);
-					bool result = Evaluate(fontPoints, bitmapNormalized, NormalizedCaracterVerticalProjection, NormalizedCaracterHorizontalProjection, projectionBitmapChar);
+
+
+					//Modificado Normalized por Crop
+					bool result = Evaluate(fontPoints, CropCaracter, NormalizedCaracterVerticalProjection, NormalizedCaracterHorizontalProjection, projectionBitmapChar);
 					numseg++;
 				} 
 
@@ -154,7 +170,7 @@ namespace Subrip
 			return croppedBitmaps;         
         }
 
-		private bool Evaluate(int fontPoints, Bitmap bitmapNormalized, long[] NormalizedCaracterVerticalProjection, long[] NormalizedCaracterHorizontalProjection,  Projection projectionCaracter)
+		private bool Evaluate(int fontPoints, Bitmap bitmap, long[] NormalizedCaracterVerticalProjection, long[] NormalizedCaracterHorizontalProjection,  Projection projectionCaracter)
 		{
 			Int32 Desplazamiento = fontPoints / 2;
 
@@ -192,8 +208,8 @@ namespace Subrip
 
 				pc.BorderStyle = BorderStyle.FixedSingle;
 
-				pc.Height = Convert.ToInt32(panel1.Height - 5); //Este es el ancho seleccionado para el scanner de una linea
-				pc.Width = Convert.ToInt32(panel1.Height - 5);
+				pc.Height = Convert.ToInt32(panel1.Height); //Este es el ancho seleccionado para el scanner de una linea
+				pc.Width = Convert.ToInt32(panel1.Height);
 				pc.SizeMode = PictureBoxSizeMode.StretchImage; //Pongo en Autosize para ver que esta pasando
 
 
@@ -201,7 +217,7 @@ namespace Subrip
 				pc.Top = 0;
 				pc.Left = numseg * Convert.ToInt32(80); //80 pixels de separacion entre controles
 
-				pc.Image = bitmapNormalized;
+				pc.Image = bitmap;
 				toolTip1.SetToolTip(pc, "MaxV:" + MaxV + "MaxH:" + MaxH);
 				this.panel1.Controls.Add(pc);
 				
@@ -214,15 +230,15 @@ namespace Subrip
 				PictureBox pc = new PictureBox();
 
 				pc.BorderStyle = BorderStyle.None;
-				pc.Height = Convert.ToInt32(panel1.Height - 5); //Este es el ancho seleccionado para el scanner de una linea
-				pc.Width = Convert.ToInt32(panel1.Height - 5);
+				pc.Height = Convert.ToInt32(panel1.Height); //Este es el ancho seleccionado para el scanner de una linea
+				pc.Width = Convert.ToInt32(panel1.Height);
 				pc.SizeMode = PictureBoxSizeMode.StretchImage; //POngo en Autosize para ver que esta pasando
 
 				//pc.Tooltip para informacion de proceso
 				pc.Top = 0;
 				pc.Left = numseg * Convert.ToInt32(80); //80 pixels de separacion entre controles
 
-				pc.Image = bitmapNormalized;
+				pc.Image = bitmap;
 				toolTip1.SetToolTip(pc, "MaxV:" + MaxV + "MaxH:" + MaxH);
 				this.panel1.Controls.Add(pc);
 
@@ -363,7 +379,6 @@ namespace Subrip
 
         private void Process()
 		{
-
 			this.textBoxProcessInfo.Text = "";
 			Index++;
 			textBoxIndex.Text = Index.ToString();
@@ -372,17 +387,9 @@ namespace Subrip
 			pictureBox1.Image = bitmap;
 			
 			Projection projectionBitOut = ProjectionService.ProjectandFilter(SelectedColor, Convert.ToInt32(this.numericUpDownColorMargin.Value), bitmap);
-
 			ProjectionsToChartSeries(projectionBitOut);
+			this.pictureBox2.Image = projectionBitOut.Bitmap;			
 
-			this.pictureBox2.Image = projectionBitOut.Bitmap;
-
-			//Se realizan dos copias del bitmap procesado en blanco y negro. Uno para cada fase de la agrupación de los segmentos
-
-			Bitmap BitmapForSegmentInitial = (Bitmap)projectionBitOut.Bitmap.Clone();
-			Bitmap BitmapForGroupedSegments = (Bitmap)projectionBitOut.Bitmap.Clone();
-
-			//Se procesa la proyeccion Horizontal del Bitmap obtenido. 
 			List<Segment> HorizontalSegments = ProjectionService.ToSegments(projectionBitOut.HorizontalProjection, projectionBitOut.Bitmap.Height);
 			List<Segment> VerticalSegments = new List<Segment>();
 
@@ -403,8 +410,8 @@ namespace Subrip
 					//Para cada segmento se localizan aqui los vertices. Valores maximos y minimo que contienen informacion en el bitmap
 					for (int i = 0; i < VerticalSegments.Count; i++)
 					{
-						VerticalSegments[i].MaxValue = MathHelper.BuscarMaximo(projectionBitOut.MaxColumnValue, VerticalSegments[i].Starts, VerticalSegments[i].End);
-						VerticalSegments[i].MinValue = MathHelper.BuscarMinimo(projectionBitOut.MinColumnValue, VerticalSegments[i].Starts, VerticalSegments[i].End, bitmap.Height);
+						VerticalSegments[i].MaxValue = MathHelper.MaxValue(projectionBitOut.MaxColumnValue, VerticalSegments[i].Starts, VerticalSegments[i].End);
+						VerticalSegments[i].MinValue = MathHelper.MinValue(projectionBitOut.MinColumnValue, VerticalSegments[i].Starts, VerticalSegments[i].End, bitmap.Height);
 					}
 									
 					//TODO Segments Services
@@ -413,12 +420,16 @@ namespace Subrip
 
 					AverageValue = MathHelper.AverageValue(projectionBitOut.HorizontalProjection);
 
+					//Dibujar Segmentos
 					//Antes de pintarrajear el Bitmap hacemos una copia para poder hacer el CROP Limpio
 					Bitmap forCropBitmap = (Bitmap)projectionBitOut.Bitmap.Clone();
+					//Se realizan dos copias del bitmap procesado en blanco y negro. Uno para cada fase de la agrupación de los segmentos
+					Bitmap BitmapForSegmentInitial = (Bitmap)projectionBitOut.Bitmap.Clone();
+					Bitmap BitmapForGroupedSegments = (Bitmap)projectionBitOut.Bitmap.Clone();
 
 					DrawSegmentsinBitmap(VerticalSegments, BitmapForSegmentInitial, Brushes.DarkRed, this.pictureBox2);
 					DrawSegmentsinBitmap(GroupedSegments, BitmapForGroupedSegments, Brushes.Orange, this.pictureBoxGrouped);
-
+					List<Bitmap> cropped = ExtractCropBitmaps(GroupedSegments, BitmapForGroupedSegments);
 
 					CropCaracteres(forCropBitmap, GroupedSegments);
 					textBoxProcessInfo.Text = this.textBoxProcessInfo.Text + VerticalSegments.Count.ToString() + " -> " + GroupedSegments.Count.ToString();
