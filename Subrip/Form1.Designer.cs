@@ -520,7 +520,6 @@
             0,
             0,
             0});
-			this.numericUpDownDistance.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
 			// 
 			// panel1
 			// 
