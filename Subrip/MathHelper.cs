@@ -47,6 +47,56 @@ namespace Subrip
 
 		}
 
+		public  static double BuscarMaximoCorrelation(double[] Correlation)
+		{
+			double Max = 0;
+
+			for (int x = 0; x < Correlation.Length; x++)
+			{
+
+				if (Correlation[x] > Max)
+				{
+					Max = Correlation[x];
+				}
+			}
+
+			return Max;
+		}
+
+		//Parece ser que los minimos son siempre 0 ¿?
+
+		public static long BuscarMinimo(int[] MinColumnValue, long starts, long end, long StartMax)
+		{
+			long Min = StartMax;
+
+			for (int x = Convert.ToInt32(starts); x < end - 1; x++)
+			{
+
+				if (MinColumnValue[x] < Min)
+				{
+					Min = MinColumnValue[x];
+				}
+			}
+
+			return Min;
+		}
+
+		public static long BuscarMaximo(int[] MaxColumnValue, long starts, long end)
+		{
+			long Max = 0;
+
+			for (int x = Convert.ToInt32(starts); x < end - 1; x++)
+			{
+
+				if (MaxColumnValue[x] > Max)
+				{
+					Max = MaxColumnValue[x];
+				}
+			}
+
+			return Convert.ToInt64(Max);
+		}
+
 		public static Int64 AverageRange(Int64[] Ranges)
 		{
 			Int64 AverageValue = 0;

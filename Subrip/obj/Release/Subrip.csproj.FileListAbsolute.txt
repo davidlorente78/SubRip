@@ -1,0 +1,10 @@
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Release\Subrip.exe.config
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Release\Subrip.exe
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Release\Subrip.pdb
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.csproj.ResolveComReference.cache
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.Form1.resources
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.Properties.Resources.resources
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.csproj.GenerateResource.cache
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.csproj.CoreCompileInputs.cache
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.exe
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Release\Subrip.pdb
