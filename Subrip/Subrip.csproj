@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitmapService.cs" />
+    <Compile Include="Services\BitmapService.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,11 +54,11 @@
     </Compile>
     <Compile Include="MathHelper.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Projection.cs" />
-    <Compile Include="ProjectionService.cs" />
+    <Compile Include="Domain\Projection.cs" />
+    <Compile Include="Services\ProjectionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Segment.cs" />
-    <Compile Include="SegmentationService.cs" />
+    <Compile Include="Domain\Segment.cs" />
+    <Compile Include="Services\SegmentationService.cs" />
     <Compile Include="Variables.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -96,6 +96,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

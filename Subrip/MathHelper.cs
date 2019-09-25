@@ -62,67 +62,20 @@ namespace Subrip
 
 			return Max;
 		}
-
-		//Parece ser que los minimos son siempre 0 ¿?
-
-		public static long MinValue(int[] MinColumnValue, long starts, long end, long StartMax)
+				
+		public static Int64 Average(Int64[] sequence)
 		{
-			long Min = StartMax;
-
-			for (int x = Convert.ToInt32(starts); x < end - 1; x++)
-			{
-
-				if (MinColumnValue[x] < Min)
-				{
-					Min = MinColumnValue[x];
-				}
-			}
-
-			return Min;
-		}
-
-		public static long MaxValue(int[] MaxColumnValue, long starts, long end)
-		{
-			long Max = 0;
-
-			for (int x = Convert.ToInt32(starts); x < end - 1; x++)
-			{
-
-				if (MaxColumnValue[x] > Max)
-				{
-					Max = MaxColumnValue[x];
-				}
-			}
-
-			return Convert.ToInt64(Max);
-		}
-
-		public static Int64 AverageRange(Int64[] Ranges)
-		{
-			Int64 AverageValue = 0;
+			Int64 average = 0;
 			Int64 Sum = 0;
-			for (int x = 0; x < Ranges.Length; x++)
+			for (int x = 0; x < sequence.Length; x++)
 			{
-				Sum = Sum + Ranges[x];
+				Sum = Sum + sequence[x];
 			}
 
-			AverageValue = Convert.ToInt64(Sum / Ranges.Length);
+			average = Convert.ToInt64(Sum / sequence.Length);
 
-			return AverageValue;
+			return average;
 		}
 
-		public static Int64 AverageValue(Int64[] Projection)
-		{
-			Int64 AverageValue = 0;
-			Int64 Sum = 0;
-			for (int x = 0; x < Projection.Length; x++)
-			{
-				Sum = Sum + Projection[x];
-			}
-
-			AverageValue = Convert.ToInt64(Sum / Projection.Length);
-
-			return AverageValue;
-		}
 	}
 }

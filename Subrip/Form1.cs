@@ -48,7 +48,7 @@ namespace Subrip{
 			if (SubtitlesDetected(projectionBitMapFilter.HorizontalSegments))
             {                
                 long Range = projectionBitMapFilter.HorizontalSegments[0].End - projectionBitMapFilter.HorizontalSegments[0].Starts;             
-                Int64 AverageRange = MathHelper.AverageRange(Ranges);
+                Int64 AverageRange = MathHelper.Average(Ranges);
 
 				projectionBitMapFilter.VerticalSegments = ProjectionService.ToSegments(projectionBitMapFilter.VerticalProjection, projectionBitMapFilter.Bitmap.Height);
 

@@ -165,11 +165,43 @@ namespace Subrip
 			//Para cada segmento se localizan aqui los vertices. Valores maximos y minimo que contienen informacion en el bitmap
 			for (int i = 0; i < projection.VerticalSegments.Count; i++)
 			{
-				projection.VerticalSegments[i].MaxValue = MathHelper.MaxValue(projection.MaxColumnValue, projection.VerticalSegments[i].Starts, projection.VerticalSegments[i].End);
-				projection.VerticalSegments[i].MinValue = MathHelper.MinValue(projection.MinColumnValue, projection.VerticalSegments[i].Starts, projection.VerticalSegments[i].End, bitmapFromScreenheight);
+				projection.VerticalSegments[i].MaxValue = MaxValue(projection.MaxColumnValue, projection.VerticalSegments[i].Starts, projection.VerticalSegments[i].End);
+				projection.VerticalSegments[i].MinValue = MinValue(projection.MinColumnValue, projection.VerticalSegments[i].Starts, projection.VerticalSegments[i].End, bitmapFromScreenheight);
 			}
 
 			return projectiontoReturn;
+		}
+
+		public static long MinValue(int[] MinColumnValue, long starts, long end, long StartMax)
+		{
+			long Min = StartMax;
+
+			for (int x = Convert.ToInt32(starts); x < end - 1; x++)
+			{
+
+				if (MinColumnValue[x] < Min)
+				{
+					Min = MinColumnValue[x];
+				}
+			}
+
+			return Min;
+		}
+
+		public static long MaxValue(int[] MaxColumnValue, long starts, long end)
+		{
+			long Max = 0;
+
+			for (int x = Convert.ToInt32(starts); x < end - 1; x++)
+			{
+
+				if (MaxColumnValue[x] > Max)
+				{
+					Max = MaxColumnValue[x];
+				}
+			}
+
+			return Convert.ToInt64(Max);
 		}
 	}
 }
