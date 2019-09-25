@@ -59,7 +59,7 @@ namespace Subrip
 
 					this.pictureBox2.Image = BitmapService.DrawSegmentsinBitmap(projectionBitMapFilter.VerticalSegments, bitmapInitialSegments, Brushes.DarkRed);
 					this.pictureBoxGrouped.Image = BitmapService.DrawSegmentsinBitmap(GroupedSegments, bitmapGroupedSegments, Brushes.Orange);
-					List<Bitmap> cropped = BitmapService.ExtractCropBitmaps(GroupedSegments, bitmapGroupedSegments);
+					List<Bitmap> cropped = BitmapService.ExtractCropBitmaps(GroupedSegments, projectionBitMapFilter.Bitmap);
 
 
 					
