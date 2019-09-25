@@ -7,19 +7,18 @@ namespace Subrip
 {
 	public static class ProjectionService
 	{
-		public static Projection GenerateProjectionfromFontChar(Char c, Size bitmapSize, Int32 fontPoints)
+		public static Projection GenerateProjectionfromFontChar(Char c, Size size, Int32 fontPoints)
 		{
-			var MaxSize = Math.Max(bitmapSize.Width, bitmapSize.Height);
-			Bitmap bitmapchar = new Bitmap(Math.Max(bitmapSize.Width, bitmapSize.Height), Math.Max(bitmapSize.Width, bitmapSize.Height));
+			var MaxSize = Math.Max(size.Width, size.Height);
+			Bitmap bitmapchar = new Bitmap(Math.Max(size.Width, size.Height), Math.Max(size.Width, size.Height));
 			Graphics graphic = Graphics.FromImage(bitmapchar);
 
-			//Ajustar fuente a SquareSize TODO
 			Font f = new Font("DengXian", fontPoints, FontStyle.Regular, GraphicsUnit.World);
 			Brush b = Brushes.Black;
 			Brush brushwhite = Brushes.White;
 			Point p = new Point(0, 0);
 
-			Rectangle rec = new Rectangle(0, 0, Math.Max(bitmapSize.Width, bitmapSize.Height), Math.Max(bitmapSize.Width, bitmapSize.Height));
+			Rectangle rec = new Rectangle(0, 0, Math.Max(size.Width, size.Height), Math.Max(size.Width, size.Height));
 			Region reg = new Region(rec);
 
 			graphic.FillRegion(brushwhite, reg);
@@ -149,11 +148,7 @@ namespace Subrip
 							s.MaxValue = 0;
 							s.MinValue = bitmapheight;
 
-							Segment Add = new Segment();
-
-							Add.Starts = s.Starts;
-							Add.End = s.End;
-
+							Segment Add = new Segment() { Starts = s.Starts, End = s.End };
 							Segments.Add(Add);
 						}
 					}
@@ -161,6 +156,20 @@ namespace Subrip
 			}
 
 			return Segments;
+		}
+
+
+		public static Projection MaxMinEvaluation(int bitmapFromScreenheight, Projection projection)
+		{
+			Projection projectiontoReturn = projection;
+			//Para cada segmento se localizan aqui los vertices. Valores maximos y minimo que contienen informacion en el bitmap
+			for (int i = 0; i < projection.VerticalSegments.Count; i++)
+			{
+				projection.VerticalSegments[i].MaxValue = MathHelper.MaxValue(projection.MaxColumnValue, projection.VerticalSegments[i].Starts, projection.VerticalSegments[i].End);
+				projection.VerticalSegments[i].MinValue = MathHelper.MinValue(projection.MinColumnValue, projection.VerticalSegments[i].Starts, projection.VerticalSegments[i].End, bitmapFromScreenheight);
+			}
+
+			return projectiontoReturn;
 		}
 	}
 }

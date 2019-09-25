@@ -264,8 +264,7 @@
 			this.textBoxIndex.Name = "textBoxIndex";
 			this.textBoxIndex.Size = new System.Drawing.Size(57, 20);
 			this.textBoxIndex.TabIndex = 8;
-			this.textBoxIndex.TextChanged += new System.EventHandler(this.textBoxIndex_TextChanged);
-			// 
+		
 			// button3
 			// 
 			this.button3.Location = new System.Drawing.Point(376, 55);
