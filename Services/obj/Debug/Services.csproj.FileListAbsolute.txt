@@ -1,0 +1,9 @@
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\Services.dll
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\Services.pdb
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\Domain.dll
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\Domain.pdb
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\Services.csprojAssemblyReference.cache
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\Services.csproj.CopyComplete
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\Services.dll
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\Services.pdb

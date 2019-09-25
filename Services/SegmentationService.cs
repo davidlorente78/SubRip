@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Subrip
+namespace Segmentation
 {
-    public static class SegmentationService
+	public static class SegmentationService
     {
         public static List<Segment> GroupSegments(List<Segment> verticalSegments)
         {

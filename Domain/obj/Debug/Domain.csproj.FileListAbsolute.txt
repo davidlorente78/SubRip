@@ -1,0 +1,6 @@
+C:\Users\dlorente\Desktop\Subrip\Domain\bin\Debug\Domain.dll
+C:\Users\dlorente\Desktop\Subrip\Domain\bin\Debug\Domain.pdb
+C:\Users\dlorente\Desktop\Subrip\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\dlorente\Desktop\Subrip\Domain\obj\Debug\Domain.dll
+C:\Users\dlorente\Desktop\Subrip\Domain\obj\Debug\Domain.pdb
+C:\Users\dlorente\Desktop\Subrip\Domain\obj\Debug\Domain.csprojAssemblyReference.cache

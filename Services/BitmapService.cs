@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Segmentation;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Subrip
@@ -20,8 +19,7 @@ namespace Subrip
 			Size s = new Size(sizex, sizey);
 
 			graphic.CopyFromScreen(left, top, 0, 0, s);
-			PixelFormat px = bitmap.PixelFormat;
-
+		
 			return bitmap;
 		}
 
@@ -52,6 +50,21 @@ namespace Subrip
 				cropped.Add(bitmap.Clone(rec, PixelFormat.Format64bppArgb));
 			}
 			return cropped;
+		}
+
+		public static Bitmap ResizeImage(Bitmap segmentCrop, Int32 fontPoints)
+		{
+
+			Bitmap animage = new Bitmap(fontPoints, fontPoints);
+			using (Graphics gr = Graphics.FromImage(animage))
+			{
+				gr.SmoothingMode = SmoothingMode.HighQuality;
+				gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+				gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+				gr.CompositingQuality = CompositingQuality.HighQuality;
+				gr.DrawImage(segmentCrop, new Rectangle(0, 0, fontPoints, fontPoints));
+			}
+			return animage;
 		}
 
 

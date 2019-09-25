@@ -1,13 +1,3 @@
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.exe.config
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.exe
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.pdb
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.ResolveComReference.cache
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.Form1.resources
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.Properties.Resources.resources
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.GenerateResource.cache
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.CoreCompileInputs.cache
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.exe
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.pdb
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\bin\Debug\Subrip.exe.config
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\bin\Debug\Subrip.exe
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\bin\Debug\Subrip.pdb
@@ -19,3 +9,19 @@ C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.csproj.Genera
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.csproj.CoreCompileInputs.cache
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.exe
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.pdb
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csprojAssemblyReference.cache
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.ResolveComReference.cache
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.Form1.resources
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.Properties.Resources.resources
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.GenerateResource.cache
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.CoreCompileInputs.cache
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.exe.config
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.exe
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.pdb
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Domain.dll
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Services.dll
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Domain.pdb
+C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Services.pdb
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.CopyComplete
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.exe
+C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.pdb

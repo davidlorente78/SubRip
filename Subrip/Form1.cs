@@ -1,18 +1,13 @@
-﻿using System;
+﻿using Segmentation;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace Subrip{
-    public partial class Form1 : Form
+namespace Subrip
+{
+	public partial class Form1 : Form
     {
         Char CaracterToDetect = '晚';
         Color SelectedColor = Color.Black;
@@ -31,6 +26,7 @@ namespace Subrip{
         private void button1_Click(object sender, EventArgs e)
         {
             Process();
+			
         }
 
         private void Process()
@@ -65,10 +61,13 @@ namespace Subrip{
 					this.pictureBoxGrouped.Image = BitmapService.DrawSegmentsinBitmap(GroupedSegments, bitmapGroupedSegments, Brushes.Orange);
 					List<Bitmap> cropped = BitmapService.ExtractCropBitmaps(GroupedSegments, bitmapGroupedSegments);
 
+
+					
+
 					CroppedBitmapsToScreen(cropped);
 
 				}
-				else textBoxProcessInfo.Text = "Line Detected without Vertical Segments";
+				
             }
         }
 
@@ -78,15 +77,18 @@ namespace Subrip{
 		{
 			foreach (Bitmap bitmap in cropped)
 			{
-				PictureBox pc = new PictureBox();
-				pc.BorderStyle = BorderStyle.FixedSingle;
-				pc.Height = Convert.ToInt32(panel1.Height);
-				pc.Width = Convert.ToInt32(panel1.Height);
-				pc.SizeMode = PictureBoxSizeMode.StretchImage;
+				
+				PictureBox pc = new PictureBox
+				{
+					BorderStyle = BorderStyle.None,
+					Height = Convert.ToInt32(32),
+					Width = Convert.ToInt32(32),
+					SizeMode = PictureBoxSizeMode.Normal,
 
-				pc.Top = 0;
-				pc.Left = numseg * Convert.ToInt32(80); //80 pixels de separacion entre controles
-				pc.Image = bitmap;
+					Top = 0,
+					Left = numseg * Convert.ToInt32(34), //80 pixels de separacion entre controles
+					Image = BitmapService.ResizeImage(bitmap, 32)
+				};
 
 				this.panel1.Controls.Add(pc);
 				numseg++;
@@ -96,12 +98,11 @@ namespace Subrip{
 
 		private void Form1_Load(object sender, EventArgs e)
         {
-            this.numericUpDownRatioTh.Value = 0.78m; //Determinado mediante pruebas
-            numericUpDownCorrelatiopnTh.Value = 0.90m;
+            this.numericUpDownRatioTh.Value = 0.78m; //Determinado mediante pruebas          
             numericUpDownFontSize.Maximum = 300;
             numericUpDownFontSize.Value = 32; //Debe estar relacionado con el tamaño de Heigh de Captura
 
-            textBox3.Text = CaracterToDetect.ToString ();
+          
         }
               
 
@@ -129,11 +130,7 @@ namespace Subrip{
             timer1.Start();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            Name = textBoxFile.Text;
-        }
-		
+      
         private void button5_Click(object sender, EventArgs e)
         {
             timer1.Stop();
@@ -161,38 +158,6 @@ namespace Subrip{
             chart2.Series["Y"].ChartType = SeriesChartType.FastLine;
             chart2.Series["Y"].Color = Color.Black;
         }
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            Char[] ch = textBox3.Text.ToCharArray();
-
-            if (ch.Length != 0) CaracterToDetect = ch[0];
-
-        }
-      
-        //public Bitmap ResizeImage(Image pImagen, Int32 fontPoints)
-        //      {
-
-        //          Rectangle sourceRectangleOut = new Rectangle(0, 0, pImagen.Width, pImagen.Height);
-        //          Rectangle destRectangleOut = new Rectangle((Convert.ToInt32(pImagen.Width - fontPoints) / 2), (Convert.ToInt32(pImagen.Height - fontPoints) / 2), fontPoints, fontPoints);
-
-        //          //creamos un bitmap con el nuevo tamaño
-        //          Int32 SquareNormalizedSize = Math.Max(pImagen.Width, pImagen.Height);
-
-        //          //Añado Pixel Format
-        //          Bitmap vBitmap = new Bitmap(SquareNormalizedSize, SquareNormalizedSize, PixelFormat.Format64bppArgb );
-
-        //          //creamos un graphics tomando como base el nuevo Bitmap
-        //          using (Graphics vGraphics = Graphics.FromImage((Image)vBitmap))
-        //          {            
-        //              vGraphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-        //              vGraphics.DrawImage(pImagen, destRectangleOut);
-        //          }      
-
-        //          return vBitmap;
-        //      }
-
-      
-
-      
+       
     }
 }
