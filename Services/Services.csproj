@@ -7,8 +7,8 @@
     <ProjectGuid>{5CB1E0B4-A87C-42DC-80E6-5C49BF507FA9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Services</RootNamespace>
-    <AssemblyName>Services</AssemblyName>
+    <RootNamespace>SubripServices</RootNamespace>
+    <AssemblyName>SubripServices</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

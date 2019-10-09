@@ -7,8 +7,8 @@
     <ProjectGuid>{905F1B45-C07D-4317-97F4-3D3AB9033342}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>SubripDomain</RootNamespace>
+    <AssemblyName>SubripDomain</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
