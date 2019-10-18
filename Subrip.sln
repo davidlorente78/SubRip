@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subrip", "Subrip\Subrip.csproj", "{DC5E2CB1-7B7C-490B-8584-A4B284B27A92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{5CB1E0B4-A87C-42DC-80E6-5C49BF507FA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\SubripServices.csproj", "{5CB1E0B4-A87C-42DC-80E6-5C49BF507FA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{905F1B45-C07D-4317-97F4-3D3AB9033342}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\SubripDomain.csproj", "{905F1B45-C07D-4317-97F4-3D3AB9033342}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

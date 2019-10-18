@@ -1,10 +1,11 @@
 ﻿using Segmentation;
+using Subrip;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Subrip
+namespace SubripServices
 {
 	public static class ProjectionService
 	{

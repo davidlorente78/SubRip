@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Segmentation;
+using System;
 using System.Collections.Generic;
 
-namespace Segmentation
+namespace SubripServices
 {
 	public static class SegmentationService
     {

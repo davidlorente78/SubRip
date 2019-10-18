@@ -1,0 +1,8 @@
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\SubripServices.dll
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\SubripServices.pdb
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\SubripDomain.dll
+C:\Users\dlorente\Desktop\Subrip\Services\bin\Debug\SubripDomain.pdb
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.csprojAssemblyReference.cache
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.csproj.CopyComplete
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.dll
+C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.pdb

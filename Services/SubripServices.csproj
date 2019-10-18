@@ -50,9 +50,9 @@
     <Compile Include="SegmentationService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{905f1b45-c07d-4317-97f4-3d3ab9033342}</Project>
-      <Name>Domain</Name>
+    <ProjectReference Include="..\Domain\SubripDomain.csproj">
+      <Project>{905F1B45-C07D-4317-97F4-3D3AB9033342}</Project>
+      <Name>SubripDomain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
