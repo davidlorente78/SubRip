@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 
+
 namespace SubripServices
 {
 	public static class ProjectionService
@@ -18,6 +19,8 @@ namespace SubripServices
 			Font f = new Font("DengXian", fontPoints, FontStyle.Regular, GraphicsUnit.World);
 			Brush b = Brushes.Black;
 			Brush brushwhite = Brushes.White;
+
+			//Size textSize = System.Windows.Forms.TextRenderer.MeasureText(c.ToString(), f);
 			Point p = new Point(0, 0);
 
 			Rectangle rec = new Rectangle(0, 0, Math.Max(size.Width, size.Height), Math.Max(size.Width, size.Height));

@@ -67,6 +67,21 @@ namespace SubripServices
 			return animage;
 		}
 
+		public static List<int> ToZerosOnesSequence(Bitmap bitmap) {
+
+			List<int> sequence = new List<int>();
+
+			for (int i = bitmap.Width - 1; i >= 0; i--)
+			{
+				for (int j = bitmap.Height; j >= 0; j--)
+				{
+					
+				}
+
+			}
+
+			return sequence;
+
 
 	}
 }
