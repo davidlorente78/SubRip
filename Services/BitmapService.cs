@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SubripServices
@@ -67,20 +68,33 @@ namespace SubripServices
 			return animage;
 		}
 
-		public static List<int> ToZerosOnesSequence(Bitmap bitmap) {
+		public static string ToZerosOnesSequence(char c, Bitmap bitmap)
+		{
+			int R = Color.Black.R;
+			int V = Color.Black.G;
+			int A = Color.Black.B;
 
-			List<int> sequence = new List<int>();
+			StringBuilder sb = new StringBuilder();
+			sb.Append(c.ToString() + ",");
 
 			for (int i = bitmap.Width - 1; i >= 0; i--)
 			{
-				for (int j = bitmap.Height; j >= 0; j--)
+				for (int j = bitmap.Height - 1; j >= 0; j--)
 				{
-					
+					Color color = bitmap.GetPixel(i, j);
+
+					if ((((R == color.R) && (color.G == V) && (A == color.B))))
+					{
+						sb.Append("1,");
+					}
+					else sb.Append("0,");
 				}
 
 			}
 
-			return sequence;
+			sb.Remove(sb.Length-1, 1); //Remove last ,					
+			return sb.ToString();
+		}
 
 
 	}
