@@ -68,32 +68,16 @@ namespace SubripServices
 			return animage;
 		}
 
-		public static string ToZerosOnesSequence(char c, Bitmap bitmap)
+		
+
+		public static Bitmap GenerateCenteredBitmapfromCropped(Bitmap bitmap, int size)
 		{
-			int R = Color.Black.R;
-			int V = Color.Black.G;
-			int A = Color.Black.B;
+			Bitmap bitmapwhite = new Bitmap(size, size);		
+			Graphics graphic = Graphics.FromImage(bitmapwhite);
+			Point p = new Point((size - bitmap.Width ) / 2, (size - bitmap.Height) / 2);
+			graphic.DrawImage(bitmap, p);
+			return bitmapwhite;
 
-			StringBuilder sb = new StringBuilder();
-			sb.Append(c.ToString() + ",");
-
-			for (int i = bitmap.Width - 1; i >= 0; i--)
-			{
-				for (int j = bitmap.Height - 1; j >= 0; j--)
-				{
-					Color color = bitmap.GetPixel(i, j);
-
-					if ((((R == color.R) && (color.G == V) && (A == color.B))))
-					{
-						sb.Append("1,");
-					}
-					else sb.Append("0,");
-				}
-
-			}
-
-			sb.Remove(sb.Length-1, 1); //Remove last ,					
-			return sb.ToString();
 		}
 
 

@@ -13,8 +13,9 @@ namespace Subrip
         Char CaracterToDetect = '晚';
         Color SelectedColor = Color.Black;
         Int64 [] Ranges = new Int64[1000];
-       
-        Int32 numseg = 0; //Cursor para pintar en el panel 1 los detectados
+		int x = 0;
+
+		Int32 numseg = 0; //Cursor para pintar en el panel 1 los detectados
         public Form1()
         {
             InitializeComponent();                              
@@ -26,8 +27,7 @@ namespace Subrip
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Process();
-			
+            Process();			
         }
 
         private void Process()
@@ -62,8 +62,14 @@ namespace Subrip
 					this.pictureBoxGrouped.Image = BitmapService.DrawSegmentsinBitmap(GroupedSegments, bitmapGroupedSegments, Brushes.Orange);
 					List<Bitmap> cropped = BitmapService.ExtractCropBitmaps(GroupedSegments, projectionBitMapFilter.Bitmap);
 
-
-					
+				
+					foreach (Bitmap crop in cropped)
+					{
+						Bitmap cr = BitmapService.GenerateCenteredBitmapfromCropped(crop, 32);
+						string filename = @"C:\Users\dlorente\Desktop\Recogzi\Cropped\Crop_" + x.ToString() + ".bmp";
+						cr.Save(filename);
+						x++;
+					}
 
 					CroppedBitmapsToScreen(cropped);
 
@@ -101,9 +107,7 @@ namespace Subrip
         {
             this.numericUpDownRatioTh.Value = 0.78m; //Determinado mediante pruebas          
             numericUpDownFontSize.Maximum = 300;
-            numericUpDownFontSize.Value = 32; //Debe estar relacionado con el tamaño de Heigh de Captura
-
-          
+            numericUpDownFontSize.Value = 32; //Debe estar relacionado con el tamaño de Heigh de Captura          
         }
               
 
