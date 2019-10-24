@@ -9,18 +9,26 @@ C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.csproj.Genera
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.csproj.CoreCompileInputs.cache
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.exe
 C:\Users\Sibon\Desktop\Code Project\Subrip\Subrip\obj\Debug\Subrip.pdb
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.exe.config
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.exe
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\Subrip.pdb
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\SubripDomain.dll
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\SubripServices.dll
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\SubripDomain.pdb
-C:\Users\dlorente\Desktop\Subrip\Subrip\bin\Debug\SubripServices.pdb
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csprojAssemblyReference.cache
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.ResolveComReference.cache
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.Form1.resources
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.Properties.Resources.resources
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.GenerateResource.cache
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.CopyComplete
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.exe
-C:\Users\dlorente\Desktop\Subrip\Subrip\obj\Debug\Subrip.pdb
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\Subrip.exe.config
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\Subrip.exe
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\Subrip.pdb
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\SubripDomain.dll
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\SubripServices.dll
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\SubripDomain.pdb
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\SubripServices.pdb
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.csprojAssemblyReference.cache
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.csproj.ResolveComReference.cache
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.Form1.resources
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.Properties.Resources.resources
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.csproj.GenerateResource.cache
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.csproj.CopyComplete
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.exe
+C:\Users\dlorente\Desktop\SubRip\Subrip\obj\Debug\Subrip.pdb
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\Recog.exe
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DomainHSK.dll
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\EntityFramework.dll
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\Recog.pdb
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\Recog.exe.config
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DomainHSK.pdb
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DomainHSK.dll.config
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\EntityFramework.xml

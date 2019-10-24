@@ -67,6 +67,7 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.panel2 = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownTop)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeft)).BeginInit();
@@ -274,7 +275,7 @@
 			this.numericUpDownColorMargin.Size = new System.Drawing.Size(56, 20);
 			this.numericUpDownColorMargin.TabIndex = 11;
 			this.numericUpDownColorMargin.Value = new decimal(new int[] {
-            100,
+            120,
             0,
             0,
             0});
@@ -518,12 +519,21 @@
 			// 
 			this.toolTip1.IsBalloon = true;
 			// 
+			// panel2
+			// 
+			this.panel2.Location = new System.Drawing.Point(10, 561);
+			this.panel2.Margin = new System.Windows.Forms.Padding(2);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(452, 73);
+			this.panel2.TabIndex = 42;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(473, 571);
+			this.ClientSize = new System.Drawing.Size(473, 639);
+			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.numericUpDownFontSize);
 			this.Controls.Add(this.label11);
@@ -614,6 +624,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericUpDownFontSize;
         private System.Windows.Forms.ToolTip toolTip1;
-    }
+		private System.Windows.Forms.Panel panel2;
+	}
 }
 

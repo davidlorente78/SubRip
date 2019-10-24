@@ -1,10 +1,13 @@
-﻿using Segmentation;
+﻿using Recogzi;
+using Recogzi.FileWriters;
+using Segmentation;
 using SubripServices;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace Subrip
 {
@@ -37,7 +40,8 @@ namespace Subrip
 
             Projection projectionBitMapFilter = ProjectionService.ProjectandFilter(SelectedColor, Convert.ToInt32(this.numericUpDownColorMargin.Value), bitmapFromScreen);
             ProjectionsToChartSeries(projectionBitMapFilter);
-            this.pictureBox2.Image = projectionBitMapFilter.Bitmap;
+            ProjectionsToChartSeries(projectionBitMapFilter);
+			this.pictureBox2.Image = projectionBitMapFilter.Bitmap;
 
 			projectionBitMapFilter.HorizontalSegments = ProjectionService.ToSegments(projectionBitMapFilter.HorizontalProjection, projectionBitMapFilter.Bitmap.Height);
             projectionBitMapFilter.VerticalSegments = new List<Segment>();
@@ -68,17 +72,44 @@ namespace Subrip
 						Bitmap cr = BitmapService.GenerateCenteredBitmapfromCropped(crop, 32);
 						string filename = @"C:\Users\dlorente\Desktop\Recogzi\Cropped\Crop_" + x.ToString() + ".bmp";
 						cr.Save(filename);
+						var sequence = DatasetGenerator.ToZerosOnesSequence('X', cr);
+						string path = @"C:\Users\dlorente\Desktop\RecogZi\Cropped.csv";
+						FileWriter.AddLine(sequence, path);
+
 						x++;
 					}
 
 					CroppedBitmapsToScreen(cropped);
 
-				}
-				
+					AddTextBoxToScreen(cropped.Count);
+
+				}				
             }
         }
 
+		private void AddTextBoxToScreen(int count)
+		{
+			for (int i = 0; i < count; i++)
+			{
+				TextBox tx = new TextBox
+				{
+					Width = 50,
+					Height = 50,
+					Font = new Font("DengXian", 28, FontStyle.Regular, GraphicsUnit.World),
+					Name = i.ToString()
 
+				};
+
+				//Event Click You are here
+				Button bt = new Button
+				{
+					Width = 5,
+					Height = 5
+
+				};
+
+			}
+		}
 
 		private void CroppedBitmapsToScreen(List<Bitmap> cropped)
 		{
@@ -108,8 +139,7 @@ namespace Subrip
             this.numericUpDownRatioTh.Value = 0.78m; //Determinado mediante pruebas          
             numericUpDownFontSize.Maximum = 300;
             numericUpDownFontSize.Value = 32; //Debe estar relacionado con el tamaño de Heigh de Captura          
-        }
-              
+        }              
 
 		private void button2_Click(object sender, EventArgs e)
 		{

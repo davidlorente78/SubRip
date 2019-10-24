@@ -14,8 +14,7 @@ namespace Subrip
 		private Int64[] verticalProjection;
 		private Int64[] horizontalProjection;
 		private Int32[] maxColumnValue;
-		private Int32[] minColumnValue;
-		
+		private Int32[] minColumnValue;		
 
 		public Bitmap Bitmap { get => bitmap; set => bitmap = value; }
 		public long[] VerticalProjection { get => verticalProjection; set => verticalProjection = value; }

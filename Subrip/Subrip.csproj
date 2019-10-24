@@ -94,6 +94,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Recogzi\RecogZi\Recogzi\Recog\Recog.csproj">
+      <Project>{e7603081-1718-401a-8196-6538bb5d66ae}</Project>
+      <Name>Recog</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\SubripDomain.csproj">
       <Project>{905f1b45-c07d-4317-97f4-3d3ab9033342}</Project>
       <Name>SubripDomain</Name>

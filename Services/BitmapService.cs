@@ -55,7 +55,6 @@ namespace SubripServices
 
 		public static Bitmap ResizeImage(Bitmap segmentCrop, Int32 fontPoints)
 		{
-
 			Bitmap animage = new Bitmap(fontPoints, fontPoints);
 			using (Graphics gr = Graphics.FromImage(animage))
 			{
@@ -72,12 +71,11 @@ namespace SubripServices
 
 		public static Bitmap GenerateCenteredBitmapfromCropped(Bitmap bitmap, int size)
 		{
-			Bitmap bitmapwhite = new Bitmap(size, size);		
+			Bitmap bitmapwhite = new Bitmap(size, size, PixelFormat.Format64bppArgb);
 			Graphics graphic = Graphics.FromImage(bitmapwhite);
 			Point p = new Point((size - bitmap.Width ) / 2, (size - bitmap.Height) / 2);
-			graphic.DrawImage(bitmap, p);
+			graphic.DrawImage(bitmap, p);				
 			return bitmapwhite;
-
 		}
 
 
