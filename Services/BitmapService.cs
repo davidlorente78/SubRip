@@ -11,15 +11,15 @@ namespace SubripServices
 {
 	public static class BitmapService
 	{
-		public static Bitmap BitmapFromScreen(int sizex, int sizey,int left, int top)
+		public static Bitmap BitmapFromScreen(int sizex, int sizey,int left, int top, int screen)
 		{
-			Rectangle region = Screen.AllScreens[0].Bounds;
+			Rectangle region = Screen.AllScreens[screen].Bounds;
 			Bitmap bitmap = new Bitmap(sizex,sizey, PixelFormat.Format64bppArgb);
 
 			Graphics graphic = Graphics.FromImage(bitmap);
 			Size s = new Size(sizex, sizey);
 
-			graphic.CopyFromScreen(left, top, 0, 0, s);
+			graphic.CopyFromScreen(region.Left+left, region.Top + top, 0, 0, s);
 		
 			return bitmap;
 		}

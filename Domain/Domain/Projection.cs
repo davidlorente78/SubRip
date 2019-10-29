@@ -14,7 +14,7 @@ namespace Subrip
 		private Int64[] verticalProjection;
 		private Int64[] horizontalProjection;
 		private Int32[] maxColumnValue;
-		private Int32[] minColumnValue;		
+		private Int32[] minColumnValue;
 
 		public Bitmap Bitmap { get => bitmap; set => bitmap = value; }
 		public long[] VerticalProjection { get => verticalProjection; set => verticalProjection = value; }
@@ -23,5 +23,7 @@ namespace Subrip
 		public Int32[] MinColumnValue { get => minColumnValue; set => minColumnValue = value; }
 		public List<Segment> HorizontalSegments { get; set; } = new List<Segment>();
 		public List<Segment> VerticalSegments { get; set; } = new List<Segment>();
+		public List<Bitmap> CroppedBitmaps { get; set; } = new List<Bitmap>();
+		public List<Bitmap> CenteredBitmaps { get; set; } = new List<Bitmap>();
 	}
 }

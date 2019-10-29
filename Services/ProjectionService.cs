@@ -10,19 +10,17 @@ namespace SubripServices
 {
 	public static class ProjectionService
 	{
-		public static Projection GenerateProjectionfromFontChar(Char c, Size size, Int32 fontPoints)
+		public static Projection GenerateProjectionfromFontChar(Char c, Size size, Int32 fontPoints,string FontName, FontStyle fontStyle)
 		{
 			var MaxSize = Math.Max(size.Width, size.Height);
 			Bitmap bitmapchar = new Bitmap(Math.Max(size.Width, size.Height), Math.Max(size.Width, size.Height));
 			Graphics graphic = Graphics.FromImage(bitmapchar);
 
-			Font f = new Font("DengXian", fontPoints, FontStyle.Regular, GraphicsUnit.World);
+			Font f = new Font(FontName, fontPoints, fontStyle, GraphicsUnit.World);
 			Brush b = Brushes.Black;
 			Brush brushwhite = Brushes.White;
 
-			//Size textSize = System.Windows.Forms.TextRenderer.MeasureText(c.ToString(), f);
 			Point p = new Point(0, 0);
-
 			Rectangle rec = new Rectangle(0, 0, Math.Max(size.Width, size.Height), Math.Max(size.Width, size.Height));
 			Region reg = new Region(rec);
 

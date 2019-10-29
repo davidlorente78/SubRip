@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.numericUpDownTop = new System.Windows.Forms.NumericUpDown();
@@ -68,6 +68,7 @@
 			this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.button4 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownTop)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDownLeft)).BeginInit();
@@ -282,30 +283,30 @@
 			// 
 			// chart1
 			// 
-			chartArea1.Name = "ChartArea1";
-			this.chart1.ChartAreas.Add(chartArea1);
+			chartArea9.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea9);
 			this.chart1.Location = new System.Drawing.Point(9, 392);
 			this.chart1.Margin = new System.Windows.Forms.Padding(2);
 			this.chart1.Name = "chart1";
-			series1.ChartArea = "ChartArea1";
-			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-			series1.Name = "X";
-			this.chart1.Series.Add(series1);
+			series9.ChartArea = "ChartArea1";
+			series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+			series9.Name = "X";
+			this.chart1.Series.Add(series9);
 			this.chart1.Size = new System.Drawing.Size(363, 82);
 			this.chart1.TabIndex = 13;
 			this.chart1.Text = "chart1";
 			// 
 			// chart2
 			// 
-			chartArea2.Name = "ChartArea1";
-			this.chart2.ChartAreas.Add(chartArea2);
+			chartArea10.Name = "ChartArea1";
+			this.chart2.ChartAreas.Add(chartArea10);
 			this.chart2.Location = new System.Drawing.Point(377, 392);
 			this.chart2.Margin = new System.Windows.Forms.Padding(2);
 			this.chart2.Name = "chart2";
-			series2.ChartArea = "ChartArea1";
-			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-			series2.Name = "Y";
-			this.chart2.Series.Add(series2);
+			series10.ChartArea = "ChartArea1";
+			series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+			series10.Name = "Y";
+			this.chart2.Series.Add(series10);
 			this.chart2.Size = new System.Drawing.Size(84, 82);
 			this.chart2.TabIndex = 15;
 			this.chart2.Text = "chart2";
@@ -325,8 +326,8 @@
 			// 
 			this.comboBoxScreen.FormattingEnabled = true;
 			this.comboBoxScreen.Items.AddRange(new object[] {
-            "Screen 1",
-            "Screen 2"});
+            "Main",
+            "Secondary"});
 			this.comboBoxScreen.Location = new System.Drawing.Point(240, 55);
 			this.comboBoxScreen.Margin = new System.Windows.Forms.Padding(2);
 			this.comboBoxScreen.Name = "comboBoxScreen";
@@ -527,12 +528,24 @@
 			this.panel2.Size = new System.Drawing.Size(452, 73);
 			this.panel2.TabIndex = 42;
 			// 
+			// button4
+			// 
+			this.button4.Location = new System.Drawing.Point(369, 638);
+			this.button4.Margin = new System.Windows.Forms.Padding(2);
+			this.button4.Name = "button4";
+			this.button4.Size = new System.Drawing.Size(91, 19);
+			this.button4.TabIndex = 43;
+			this.button4.Text = "Add to Dataset";
+			this.button4.UseVisualStyleBackColor = true;
+			this.button4.Click += new System.EventHandler(this.button4_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(473, 639);
+			this.ClientSize = new System.Drawing.Size(479, 668);
+			this.Controls.Add(this.button4);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.label13);
 			this.Controls.Add(this.numericUpDownFontSize);
@@ -625,6 +638,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownFontSize;
         private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.Panel panel2;
+		private System.Windows.Forms.Button button4;
 	}
 }
 

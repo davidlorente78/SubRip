@@ -12,48 +12,50 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace Subrip
 {
 	public partial class Form1 : Form
-    {
-        Char CaracterToDetect = '晚';
-        Color SelectedColor = Color.Black;
-        Int64 [] Ranges = new Int64[1000];
+	{
+
+		Color SelectedColor = Color.Black;
+		Int64[] Ranges = new Int64[1000];
 		int x = 0;
+		Projection projectionBitMapFilter = new Projection();
 
 		Int32 numseg = 0; //Cursor para pintar en el panel 1 los detectados
-        public Form1()
-        {
-            InitializeComponent();                              
-        }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Process();
-        }
+		public Form1()
+		{
+			InitializeComponent();
+			this.comboBoxScreen.SelectedIndex = 0;
+		}
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			Process();
+		}
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Process();			
-        }
+		private void button1_Click(object sender, EventArgs e)
+		{
+			Process();
+		}
 
-        private void Process()
-        {    
-            Bitmap bitmapFromScreen = BitmapService.BitmapFromScreen(Convert.ToInt32(this.numericUpDownSizex.Value),Convert.ToInt32(this.numericUpDownSizey.Value),Convert.ToInt32(this.numericUpDownLeft.Value),Convert.ToInt32(this.numericUpDownTop.Value));
-            pictureBox1.Image = bitmapFromScreen;
+		private void Process()
+		{
+			Bitmap bitmapFromScreen = BitmapService.BitmapFromScreen(Convert.ToInt32(this.numericUpDownSizex.Value), Convert.ToInt32(this.numericUpDownSizey.Value), Convert.ToInt32(this.numericUpDownLeft.Value), Convert.ToInt32(this.numericUpDownTop.Value), this.comboBoxScreen.SelectedIndex);
+			pictureBox1.Image = bitmapFromScreen;
 
-            Projection projectionBitMapFilter = ProjectionService.ProjectandFilter(SelectedColor, Convert.ToInt32(this.numericUpDownColorMargin.Value), bitmapFromScreen);
-            ProjectionsToChartSeries(projectionBitMapFilter);
-            ProjectionsToChartSeries(projectionBitMapFilter);
+			projectionBitMapFilter = ProjectionService.ProjectandFilter(SelectedColor, Convert.ToInt32(this.numericUpDownColorMargin.Value), bitmapFromScreen);
+			ProjectionsToChartSeries(projectionBitMapFilter);
+			ProjectionsToChartSeries(projectionBitMapFilter);
 			this.pictureBox2.Image = projectionBitMapFilter.Bitmap;
 
 			projectionBitMapFilter.HorizontalSegments = ProjectionService.ToSegments(projectionBitMapFilter.HorizontalProjection, projectionBitMapFilter.Bitmap.Height);
-            projectionBitMapFilter.VerticalSegments = new List<Segment>();
+			projectionBitMapFilter.VerticalSegments = new List<Segment>();
 
 			if (SubtitlesDetected(projectionBitMapFilter.HorizontalSegments))
-            {                
-                long Range = projectionBitMapFilter.HorizontalSegments[0].End - projectionBitMapFilter.HorizontalSegments[0].Starts;             
-                Int64 AverageRange = MathHelper.Average(Ranges);
+			{
+				long Range = projectionBitMapFilter.HorizontalSegments[0].End - projectionBitMapFilter.HorizontalSegments[0].Starts;
+				Int64 AverageRange = MathHelper.Average(Ranges);
 
 				projectionBitMapFilter.VerticalSegments = ProjectionService.ToSegments(projectionBitMapFilter.VerticalProjection, projectionBitMapFilter.Bitmap.Height);
 
-                if (projectionBitMapFilter.VerticalSegments.Count != 0)
+				if (projectionBitMapFilter.VerticalSegments.Count != 0)
 				{
 					projectionBitMapFilter = ProjectionService.MaxMinEvaluation(bitmapFromScreen.Height, projectionBitMapFilter);
 
@@ -64,28 +66,23 @@ namespace Subrip
 
 					this.pictureBox2.Image = BitmapService.DrawSegmentsinBitmap(projectionBitMapFilter.VerticalSegments, bitmapInitialSegments, Brushes.DarkRed);
 					this.pictureBoxGrouped.Image = BitmapService.DrawSegmentsinBitmap(GroupedSegments, bitmapGroupedSegments, Brushes.Orange);
-					List<Bitmap> cropped = BitmapService.ExtractCropBitmaps(GroupedSegments, projectionBitMapFilter.Bitmap);
+					projectionBitMapFilter.CroppedBitmaps = BitmapService.ExtractCropBitmaps(GroupedSegments, projectionBitMapFilter.Bitmap);
 
-				
-					foreach (Bitmap crop in cropped)
+
+					foreach (Bitmap crop in projectionBitMapFilter.CroppedBitmaps)
 					{
-						Bitmap cr = BitmapService.GenerateCenteredBitmapfromCropped(crop, 32);
-						string filename = @"C:\Users\dlorente\Desktop\Recogzi\Cropped\Crop_" + x.ToString() + ".bmp";
-						cr.Save(filename);
-						var sequence = DatasetGenerator.ToZerosOnesSequence('X', cr);
-						string path = @"C:\Users\dlorente\Desktop\RecogZi\Cropped.csv";
-						FileWriter.AddLine(sequence, path);
-
+						Bitmap centered = BitmapService.GenerateCenteredBitmapfromCropped(crop, 32);
+						projectionBitMapFilter.CenteredBitmaps.Add(centered);
 						x++;
 					}
 
-					CroppedBitmapsToScreen(cropped);
+					CroppedBitmapsToScreen(projectionBitMapFilter.CenteredBitmaps);
 
-					AddTextBoxToScreen(cropped.Count);
+					AddTextBoxToScreen(projectionBitMapFilter.CroppedBitmaps.Count);
 
-				}				
-            }
-        }
+				}
+			}
+		}
 
 		private void AddTextBoxToScreen(int count)
 		{
@@ -93,20 +90,16 @@ namespace Subrip
 			{
 				TextBox tx = new TextBox
 				{
-					Width = 50,
+					Width = 75,
 					Height = 50,
 					Font = new Font("DengXian", 28, FontStyle.Regular, GraphicsUnit.World),
-					Name = i.ToString()
+					Name = i.ToString(),
+					Top = 3,
+					Left = 5 + i * 80
 
 				};
 
-				//Event Click You are here
-				Button bt = new Button
-				{
-					Width = 5,
-					Height = 5
-
-				};
+				this.panel2.Controls.Add(tx);
 
 			}
 		}
@@ -115,7 +108,7 @@ namespace Subrip
 		{
 			foreach (Bitmap bitmap in cropped)
 			{
-				
+
 				PictureBox pc = new PictureBox
 				{
 					BorderStyle = BorderStyle.None,
@@ -135,11 +128,11 @@ namespace Subrip
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
-        {
-            this.numericUpDownRatioTh.Value = 0.78m; //Determinado mediante pruebas          
-            numericUpDownFontSize.Maximum = 300;
-            numericUpDownFontSize.Value = 32; //Debe estar relacionado con el tamaño de Heigh de Captura          
-        }              
+		{
+			this.numericUpDownRatioTh.Value = 0.78m; //Determinado mediante pruebas          
+			numericUpDownFontSize.Maximum = 300;
+			numericUpDownFontSize.Value = 32; //Debe estar relacionado con el tamaño de Heigh de Captura          
+		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
@@ -147,52 +140,78 @@ namespace Subrip
 			SelectedColor = colorDialog1.Color;
 		}
 
-        //Dado un Bitmap y los segmentos localizados en el, traza los rectangulos que enmarcan los segmentos con el Brush y lo vuelca en pb que se pasa como parametro. 
-      
-        private bool SubtitlesDetected(List<Segment> HorizontalSegments)
-        {
-            return (HorizontalSegments.Count == 1);
-        }
+		//Dado un Bitmap y los segmentos localizados en el, traza los rectangulos que enmarcan los segmentos con el Brush y lo vuelca en pb que se pasa como parametro. 
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            if (Convert.ToInt32(this.numericUpDownInterval.Value) != 0)
-                timer1.Interval = Convert.ToInt32(this.numericUpDownInterval.Value);
-        }
+		private bool SubtitlesDetected(List<Segment> HorizontalSegments)
+		{
+			return (HorizontalSegments.Count == 1);
+		}
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
+		private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+		{
+			if (Convert.ToInt32(this.numericUpDownInterval.Value) != 0)
+				timer1.Interval = Convert.ToInt32(this.numericUpDownInterval.Value);
+		}
 
-      
-        private void button5_Click(object sender, EventArgs e)
-        {
-            timer1.Stop();
-        }
+		private void button3_Click(object sender, EventArgs e)
+		{
+			timer1.Start();
+		}
 
-        private void ProjectionsToChartSeries(Projection projectionBitOut)
-        {
-            chart1.Series["X"].Points.Clear();
-            chart2.Series["Y"].Points.Clear();
 
-            //En este punto estan calculadas las projecciones horizontal y vertical
-            for (Int32 x = 0; x < projectionBitOut.VerticalProjection.Length; x++)
-            {
-                chart1.Series["X"].Points.AddXY(Convert.ToDouble(x), Convert.ToDouble(projectionBitOut.VerticalProjection[x]));
-            }
+		private void button5_Click(object sender, EventArgs e)
+		{
+			timer1.Stop();
+		}
 
-            chart1.Series["X"].ChartType = SeriesChartType.FastLine;
-            chart1.Series["X"].Color = Color.Red;
+		private void ProjectionsToChartSeries(Projection projectionBitOut)
+		{
+			chart1.Series["X"].Points.Clear();
+			chart2.Series["Y"].Points.Clear();
 
-            for (Int32 y = 0; y < projectionBitOut.HorizontalProjection.Length; y++)
-            {
-                chart2.Series["Y"].Points.AddXY(Convert.ToDouble(y), Convert.ToDouble(projectionBitOut.HorizontalProjection[y]));
-            }
+			//En este punto estan calculadas las projecciones horizontal y vertical
+			for (Int32 x = 0; x < projectionBitOut.VerticalProjection.Length; x++)
+			{
+				chart1.Series["X"].Points.AddXY(Convert.ToDouble(x), Convert.ToDouble(projectionBitOut.VerticalProjection[x]));
+			}
 
-            chart2.Series["Y"].ChartType = SeriesChartType.FastLine;
-            chart2.Series["Y"].Color = Color.Black;
-        }
-       
-    }
+			chart1.Series["X"].ChartType = SeriesChartType.FastLine;
+			chart1.Series["X"].Color = Color.Red;
+
+			for (Int32 y = 0; y < projectionBitOut.HorizontalProjection.Length; y++)
+			{
+				chart2.Series["Y"].Points.AddXY(Convert.ToDouble(y), Convert.ToDouble(projectionBitOut.HorizontalProjection[y]));
+			}
+
+			chart2.Series["Y"].ChartType = SeriesChartType.FastLine;
+			chart2.Series["Y"].Color = Color.Black;
+		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			//Add to dataset
+
+			var textboxs = this.panel2.Controls;
+
+			foreach (TextBox tx in textboxs)
+			{
+				if (tx.Text != String.Empty)
+				{
+
+					var zi = tx.Text;
+					var i = Convert.ToInt32(tx.Name);
+					var bit = projectionBitMapFilter.CenteredBitmaps[i];
+
+					var sequence = DatasetGenerator.ToZerosOnesSequence(Convert.ToChar(zi), bit);
+					string path = @"C:\Users\dlorente\Desktop\RecogZi\dataset.csv";
+					FileWriter.AddLine(sequence, path);
+				}
+
+
+			}
+
+			MessageBox.Show("New samples have been added");
+
+		}
+	}
 }

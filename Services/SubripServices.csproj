@@ -55,5 +55,8 @@
       <Name>SubripDomain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SubripDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

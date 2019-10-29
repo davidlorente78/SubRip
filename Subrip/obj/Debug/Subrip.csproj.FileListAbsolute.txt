@@ -32,3 +32,13 @@ C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\Recog.exe.config
 C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DomainHSK.pdb
 C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DomainHSK.dll.config
 C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\EntityFramework.xml
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel1.txt
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel2.txt
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel3.txt
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel4.txt
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel5.txt
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel6.txt
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Phrases\Phrases.txt
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DataFiles\Phrases\cedict_ts.u8
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DomainServicesHSK.dll
+C:\Users\dlorente\Desktop\SubRip\Subrip\bin\Debug\DomainServicesHSK.pdb
