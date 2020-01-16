@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.numericUpDownTop = new System.Windows.Forms.NumericUpDown();
@@ -91,7 +91,7 @@
 			this.pictureBox1.Location = new System.Drawing.Point(11, 129);
 			this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(450, 82);
+			this.pictureBox1.Size = new System.Drawing.Size(676, 82);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
@@ -252,7 +252,7 @@
 			this.pictureBox2.Location = new System.Drawing.Point(11, 216);
 			this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBox2.Name = "pictureBox2";
-			this.pictureBox2.Size = new System.Drawing.Size(450, 82);
+			this.pictureBox2.Size = new System.Drawing.Size(676, 82);
 			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox2.TabIndex = 10;
 			this.pictureBox2.TabStop = false;
@@ -283,30 +283,30 @@
 			// 
 			// chart1
 			// 
-			chartArea9.Name = "ChartArea1";
-			this.chart1.ChartAreas.Add(chartArea9);
+			chartArea1.Name = "ChartArea1";
+			this.chart1.ChartAreas.Add(chartArea1);
 			this.chart1.Location = new System.Drawing.Point(9, 392);
 			this.chart1.Margin = new System.Windows.Forms.Padding(2);
 			this.chart1.Name = "chart1";
-			series9.ChartArea = "ChartArea1";
-			series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-			series9.Name = "X";
-			this.chart1.Series.Add(series9);
-			this.chart1.Size = new System.Drawing.Size(363, 82);
+			series1.ChartArea = "ChartArea1";
+			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+			series1.Name = "X";
+			this.chart1.Series.Add(series1);
+			this.chart1.Size = new System.Drawing.Size(590, 82);
 			this.chart1.TabIndex = 13;
 			this.chart1.Text = "chart1";
 			// 
 			// chart2
 			// 
-			chartArea10.Name = "ChartArea1";
-			this.chart2.ChartAreas.Add(chartArea10);
-			this.chart2.Location = new System.Drawing.Point(377, 392);
+			chartArea2.Name = "ChartArea1";
+			this.chart2.ChartAreas.Add(chartArea2);
+			this.chart2.Location = new System.Drawing.Point(603, 392);
 			this.chart2.Margin = new System.Windows.Forms.Padding(2);
 			this.chart2.Name = "chart2";
-			series10.ChartArea = "ChartArea1";
-			series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-			series10.Name = "Y";
-			this.chart2.Series.Add(series10);
+			series2.ChartArea = "ChartArea1";
+			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+			series2.Name = "Y";
+			this.chart2.Series.Add(series2);
 			this.chart2.Size = new System.Drawing.Size(84, 82);
 			this.chart2.TabIndex = 15;
 			this.chart2.Text = "chart2";
@@ -438,7 +438,7 @@
 			this.panel1.Location = new System.Drawing.Point(9, 484);
 			this.panel1.Margin = new System.Windows.Forms.Padding(2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(452, 73);
+			this.panel1.Size = new System.Drawing.Size(678, 73);
 			this.panel1.TabIndex = 34;
 			// 
 			// pictureBoxGrouped
@@ -447,7 +447,7 @@
 			this.pictureBoxGrouped.Location = new System.Drawing.Point(11, 302);
 			this.pictureBoxGrouped.Margin = new System.Windows.Forms.Padding(2);
 			this.pictureBoxGrouped.Name = "pictureBoxGrouped";
-			this.pictureBoxGrouped.Size = new System.Drawing.Size(450, 82);
+			this.pictureBoxGrouped.Size = new System.Drawing.Size(676, 82);
 			this.pictureBoxGrouped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBoxGrouped.TabIndex = 35;
 			this.pictureBoxGrouped.TabStop = false;
@@ -525,12 +525,12 @@
 			this.panel2.Location = new System.Drawing.Point(10, 561);
 			this.panel2.Margin = new System.Windows.Forms.Padding(2);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(452, 73);
+			this.panel2.Size = new System.Drawing.Size(677, 73);
 			this.panel2.TabIndex = 42;
 			// 
 			// button4
 			// 
-			this.button4.Location = new System.Drawing.Point(369, 638);
+			this.button4.Location = new System.Drawing.Point(596, 638);
 			this.button4.Margin = new System.Windows.Forms.Padding(2);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(91, 19);
@@ -544,7 +544,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(479, 668);
+			this.ClientSize = new System.Drawing.Size(691, 668);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.panel2);
 			this.Controls.Add(this.label13);

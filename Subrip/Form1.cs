@@ -5,6 +5,7 @@ using SubripServices;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -37,6 +38,8 @@ namespace Subrip
 
 		private void Process()
 		{
+			
+
 			Bitmap bitmapFromScreen = BitmapService.BitmapFromScreen(Convert.ToInt32(this.numericUpDownSizex.Value), Convert.ToInt32(this.numericUpDownSizey.Value), Convert.ToInt32(this.numericUpDownLeft.Value), Convert.ToInt32(this.numericUpDownTop.Value), this.comboBoxScreen.SelectedIndex);
 			pictureBox1.Image = bitmapFromScreen;
 
@@ -69,33 +72,48 @@ namespace Subrip
 					projectionBitMapFilter.CroppedBitmaps = BitmapService.ExtractCropBitmaps(GroupedSegments, projectionBitMapFilter.Bitmap);
 
 
+					List<char> predictions = new List<char>();
+
 					foreach (Bitmap crop in projectionBitMapFilter.CroppedBitmaps)
 					{
 						Bitmap centered = BitmapService.GenerateCenteredBitmapfromCropped(crop, 32);
 						projectionBitMapFilter.CenteredBitmaps.Add(centered);
+
+
+
+						string zerosandones = DatasetGenerator.ToZerosOnesSequence(' ', centered);
+
+						var c = PredictionService.Predict(zerosandones);
+						predictions.Add(c);
+
+
 						x++;
 					}
 
 					CroppedBitmapsToScreen(projectionBitMapFilter.CenteredBitmaps);
 
-					AddTextBoxToScreen(projectionBitMapFilter.CroppedBitmaps.Count);
+					AddTextBoxToScreen(projectionBitMapFilter.CroppedBitmaps.Count,predictions);
 
 				}
 			}
 		}
 
-		private void AddTextBoxToScreen(int count)
+		private void AddTextBoxToScreen(int count, List<char> predictions)
 		{
+
+			this.panel2.Controls.Clear();
 			for (int i = 0; i < count; i++)
 			{
 				TextBox tx = new TextBox
 				{
-					Width = 75,
-					Height = 50,
+					Width = 40,
+					Height = 40,
 					Font = new Font("DengXian", 28, FontStyle.Regular, GraphicsUnit.World),
 					Name = i.ToString(),
 					Top = 3,
-					Left = 5 + i * 80
+					Left = 5 + i * 45,
+					Text = predictions[i].ToString()
+					
 
 				};
 
@@ -106,6 +124,8 @@ namespace Subrip
 
 		private void CroppedBitmapsToScreen(List<Bitmap> cropped)
 		{
+			this.panel1.Controls.Clear();
+
 			foreach (Bitmap bitmap in cropped)
 			{
 

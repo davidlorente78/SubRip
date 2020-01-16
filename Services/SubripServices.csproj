@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitmapService.cs" />
+    <Compile Include="PredictionService.cs" />
     <Compile Include="ProjectionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SegmentationService.cs" />
@@ -54,9 +55,6 @@
       <Project>{905F1B45-C07D-4317-97F4-3D3AB9033342}</Project>
       <Name>SubripDomain</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SubripDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
