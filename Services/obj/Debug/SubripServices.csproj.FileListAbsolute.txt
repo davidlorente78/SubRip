@@ -6,3 +6,12 @@ C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.csprojAssembl
 C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.csproj.CopyComplete
 C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.dll
 C:\Users\dlorente\Desktop\Subrip\Services\obj\Debug\SubripServices.pdb
+C:\Users\David\Desktop\Subrip\Services\bin\Debug\SubripServices.dll
+C:\Users\David\Desktop\Subrip\Services\bin\Debug\SubripServices.pdb
+C:\Users\David\Desktop\Subrip\Services\bin\Debug\SubripDomain.dll
+C:\Users\David\Desktop\Subrip\Services\bin\Debug\SubripDomain.pdb
+C:\Users\David\Desktop\Subrip\Services\obj\Debug\SubripServices.csprojAssemblyReference.cache
+C:\Users\David\Desktop\Subrip\Services\obj\Debug\SubripServices.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\Subrip\Services\obj\Debug\SubripServices.csproj.CopyComplete
+C:\Users\David\Desktop\Subrip\Services\obj\Debug\SubripServices.dll
+C:\Users\David\Desktop\Subrip\Services\obj\Debug\SubripServices.pdb

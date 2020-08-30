@@ -9,9 +9,9 @@ namespace Subrip
     public static class Variables
     {
 
-        public static string WorkPath = @"d:\Profiles\dlorente\Desktop\SubRipOut\";
-        public static string HomePath = @"C:\Users\Sibo David\Desktop\Panda\SubRip\";
-        public static string Environment = "Work"; //Write Home when there.
+        public static string HomePath = @"d:\Profiles\David\Desktop\SubRipOut\";
+        public static string HomePath2 = @"C:\Users\Sibo David\Desktop\Panda\SubRip\";
+        public static string Environment = "Home"; //Write Home when there.
 
     }
 }

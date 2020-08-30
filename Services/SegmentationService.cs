@@ -25,15 +25,17 @@ namespace SubripServices
 
                 double JoinedNextRatio = 0;
 
-                if (x + 1 < verticalSegments.Count) verticalSegments[x].CalculateRatiowithNextSegmentJoined(verticalSegments[x + 1]);
+                double yiRatio = 6;
 
-                if ((Math.Abs(1 - Ratio) < ThresholdRatio) || (Math.Abs(1 - 1 / Ratio) < ThresholdRatio))
+                if (x + 1 < verticalSegments.Count) JoinedNextRatio = verticalSegments[x].CalculateRatiowithNextSegmentJoined(verticalSegments[x + 1]);
+
+                if ((Math.Abs(1 - Ratio) < ThresholdRatio) || (Math.Abs(1 - 1 / Ratio) < ThresholdRatio) ||(Ratio > yiRatio))
                 {
                     GroupedSegments.Add(verticalSegments[x]);
                 }
 
                 //No se considera fusionar nunca el ultimo segmento
-                else if ((x != verticalSegments.Count - 1) && ((Math.Abs(1 - JoinedNextRatio) < Math.Abs(1 - Ratio)) || (Math.Abs(1 - 1 / JoinedNextRatio) < Math.Abs(1 - 1 / Ratio))))
+                else if (((x != verticalSegments.Count - 1) && ((Math.Abs(1 - JoinedNextRatio) < Math.Abs(1 - Ratio)) || (Math.Abs(1 - 1 / JoinedNextRatio) < Math.Abs(1 - 1 / Ratio))))   && (Ratio <= yiRatio) )
                 {
                     GroupedSegments.Add(JoinSegments(verticalSegments[x], verticalSegments[x + 1]));
                     x++; //Para no considerar el siguiente segmento

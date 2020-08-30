@@ -14,12 +14,12 @@ namespace SubripServices
 		public static Bitmap BitmapFromScreen(int sizex, int sizey,int left, int top, int screen)
 		{
 			Rectangle region = Screen.AllScreens[screen].Bounds;
-			Bitmap bitmap = new Bitmap(sizex,sizey, PixelFormat.Format64bppArgb);
+			Bitmap bitmap = new Bitmap(sizex, sizey);
 
 			Graphics graphic = Graphics.FromImage(bitmap);
 			Size s = new Size(sizex, sizey);
 
-			graphic.CopyFromScreen(region.Left+left, region.Top + top, 0, 0, s);
+			graphic.CopyFromScreen(  region.Left + left ,region.Top + top,0, 0, s); //Top Left Change
 		
 			return bitmap;
 		}
@@ -41,11 +41,12 @@ namespace SubripServices
 
 		public static List<Bitmap> ExtractCropBitmaps(List<Segment> Segments, Bitmap bitmap)
 		{
+			
 			List<Bitmap> cropped = new List<Bitmap>();
 			foreach (Segment s in Segments)
 			{
 				Point p = new Point(Convert.ToInt32(s.Starts), Convert.ToInt32(s.MinValue));
-				Size size = new Size(Convert.ToInt32(s.End - s.Starts), Convert.ToInt32(Convert.ToInt32(s.MaxValue - s.MinValue)));
+				Size size = new Size(Convert.ToInt32(s.End - s.Starts), Convert.ToInt32(Convert.ToInt32(s.MaxValue - s.MinValue)) + 1);
 				Rectangle rec = new Rectangle(p, size);
 
 				cropped.Add(bitmap.Clone(rec, PixelFormat.Format64bppArgb));
