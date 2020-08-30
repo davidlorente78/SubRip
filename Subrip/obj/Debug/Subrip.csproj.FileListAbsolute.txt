@@ -60,3 +60,11 @@ C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DomainHSK.dll.config
 C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\EntityFramework.xml
 C:\Users\David\Desktop\Subrip\Subrip\obj\Debug\Subrip.csproj.CopyComplete
 C:\Users\David\Desktop\Subrip\Subrip\obj\Debug\Subrip.FormRip.resources
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel1.txt
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel2.txt
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel3.txt
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel4.txt
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel5.txt
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Levels\NewHSKLevel6.txt
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Phrases\Phrases.txt
+C:\Users\David\Desktop\Subrip\Subrip\bin\Debug\DataFiles\Phrases\cedict_ts.u8

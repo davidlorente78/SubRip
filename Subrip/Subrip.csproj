@@ -101,6 +101,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\HSK-5.0\Domain\HSKDomain.csproj">
+      <Project>{f863c3c1-f759-44ed-8776-9d380dcff4cf}</Project>
+      <Name>HSKDomain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Recogzi\RecogZi\Recogzi\Recog\Recog.csproj">
       <Project>{e7603081-1718-401a-8196-6538bb5d66ae}</Project>
       <Name>Recog</Name>
@@ -113,6 +117,14 @@
       <Project>{5cb1e0b4-a87c-42dc-80e6-5c49bf507fa9}</Project>
       <Name>SubripServices</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\add.png" />
+    <None Include="Images\lupa.jfif" />
+    <Content Include="Images\play.png" />
+    <Content Include="Images\select.png" />
+    <Content Include="Images\snapshot.png" />
+    <Content Include="Images\stop.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

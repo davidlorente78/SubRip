@@ -1,9 +1,12 @@
-﻿using Recogzi;
+﻿using DALReaders;
+using HSK;
+using Recogzi;
 using Recogzi.FileWriters;
 using Segmentation;
 using SubripCapture;
 using SubripServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -15,6 +18,32 @@ namespace Subrip
 {
 	public partial class FormRip : Form
 	{
+
+
+
+		private ArrayList Included_Words = new ArrayList();
+		private ArrayList _pinyinToPronunce = new ArrayList();
+		private ArrayList _phrasesWords = new ArrayList();
+		private ArrayList _dictionaryWords = new ArrayList();
+		private ArrayList _common300Words = new ArrayList();
+		private ArrayList _hsk1Words = new ArrayList();
+		private ArrayList _hsk2Words = new ArrayList();
+		private ArrayList HSK3_Words = new ArrayList();
+		private ArrayList HSK4_Words = new ArrayList();
+		private ArrayList HSK5_Words = new ArrayList();
+		private ArrayList HSK6_Words = new ArrayList();
+
+		private bool boolGenerateWithPinyin = false;
+		private bool boolGenerateWithDescriptions = false;
+
+
+		private bool boolDictionary = false;
+
+		private Point StartPositionPanel = new Point(0, 0); //Panel 3 Included
+		private Int32 GeneratorButtonSize_Width = 45;
+		private Int32 GeneratorButtonSize_Height = 45;
+
+		
 
 		private FormRip m_InstanceRef = null;
 		public FormRip InstanceRef
@@ -66,11 +95,7 @@ namespace Subrip
 			InitializeComponent();
 			this.comboBoxScreen.SelectedIndex = 0;
 			this.SelectedColor = Color.White;
-			this.numericUpDownTop.Value = CaptureArea.Top;
-			this.numericUpDownLeft.Value = CaptureArea.Left;			
-
-			this.numericUpDownSizeWidth.Value = CaptureArea.Width;
-			this.numericUpDownSizeHeight.Value = CaptureArea.Height;
+			LoadWordsfromAssembly();
 
 		}
 
@@ -87,10 +112,11 @@ namespace Subrip
 
 		private void Process()
 		{
-			
 
-			Bitmap bitmapFromScreen = BitmapService.BitmapFromScreen(Convert.ToInt32(this.numericUpDownSizeWidth.Value), Convert.ToInt32(this.numericUpDownSizeHeight.Value), Convert.ToInt32(this.numericUpDownLeft.Value), Convert.ToInt32(this.numericUpDownTop.Value), this.comboBoxScreen.SelectedIndex);
+			this.Hide();
+			Bitmap bitmapFromScreen = BitmapService.BitmapFromScreen(CaptureArea.Width, CaptureArea.Height, CaptureArea.Left, CaptureArea.Top, this.comboBoxScreen.SelectedIndex);
 			pictureBox1.Image = bitmapFromScreen;
+			this.Show();
 
 			projectionBitMapFilter = ProjectionService.ProjectandFilter(SelectedColor, Convert.ToInt32(this.numericUpDownColorMargin.Value), bitmapFromScreen);
 			ProjectionsToChartSeries(projectionBitMapFilter);
@@ -273,8 +299,8 @@ namespace Subrip
 					var bit = projectionBitMapFilter.CenteredBitmaps[i];
 
 					var sequence = DatasetGenerator.ToZerosOnesSequence(Convert.ToChar(zi), bit);
-					string path = @"C:\Users\David\Desktop\RecogZi\dataset.csv";
-					FileWriter.AddLine(sequence, path);
+					//string path = @"C:\Users\David\Desktop\RecogZi\dataset.csv";
+					FileWriter.AddLine(sequence, Variables.datasetpath);
 				}
 
 
@@ -295,16 +321,350 @@ namespace Subrip
 
 		}
 
-        private void button6_VisibleChanged(object sender, EventArgs e)
+		private void btnTextAnalysis_Click(object sender, EventArgs e)
         {
-			
-			this.numericUpDownTop.Value = CaptureArea.Top;
-			this.numericUpDownLeft.Value = CaptureArea.Left;
+			//string inputText = getInputText();
 
-			this.numericUpDownSizeWidth.Value = CaptureArea.Width;
-			this.numericUpDownSizeHeight.Value = CaptureArea.Height;
+			//Text text = new Text(inputText);
 
+			//text.Show();
+
+			GenerateWith(0);
+
+
+		}
+
+        private string getInputText()
+        {
+            string inputText = "";
+
+            var textboxs = this.panel2.Controls;
+
+            foreach (TextBox tx in textboxs)
+            {
+                if (tx.Text != String.Empty)
+                {
+                    inputText = inputText + tx.Text;
+                }
+
+            }
+
+            return inputText;
+        }
+
+        private void GenerateWith(Int32 option)
+		{
+			panel3.Controls.Clear();
+			_pinyinToPronunce.Clear();
+
+			Int32 FastCompute = 10;
+
+			//ButtonSize_Height = Convert.ToInt32(2 * textBoxInputText.Font.SizeInPoints);
+
+			//ButtonSize_Width = Convert.ToInt32(2 * textBoxInputText.Font.SizeInPoints);
+
+			Int32 CaractersPerLine = panel1.Width / GeneratorButtonSize_Width - 1;
+
+			string Input = getInputText();
+
+			int Lenght = Input.Length;
+
+			int textCursor = 0;
+
+			int MaxLenght_WithMatch = 1;
+
+			Int32 Posx = 0;
+			Int32 Posy = 0;
+
+			while (textCursor < Input.Length)
+			{
+				ArrayList Matches = new ArrayList();
+				Word BestMatch = new Word();
+
+				Int32 MaxMatch = 0;
+
+				for (Int32 x = 1; x < Input.Length - textCursor + 1; x++)
+				{
+					if (x > FastCompute) break; //Fast Compute
+
+
+					if ((textCursor + x < Lenght) || (textCursor + x == Lenght))
+					{
+						foreach (Word w in Included_Words)
+						{
+							if (w.Character == Input.Substring(textCursor, x))
+							{
+								MaxMatch = x;
+								Matches.Add(w);
+								BestMatch = w;
+							}
+
+
+						}
+					}
+				} //End for Single Match
+
+				int CountMatches = Matches.Count;
+
+				if (CountMatches != 0)
+				{
+					Button btnWordMatch = new Button();
+					btnWordMatch.Size = new Size(GeneratorButtonSize_Width * BestMatch.Character.Length, GeneratorButtonSize_Height);
+					btnWordMatch.Text = BestMatch.Character;
+					btnWordMatch.Location = new Point(StartPositionPanel.X + Posx * GeneratorButtonSize_Width,
+						StartPositionPanel.Y + Posy * GeneratorButtonSize_Height);
+					//btnWordMatch.Font = textBoxInputText.Font;
+
+					//Puede que tenga mas de un pinyin para pronunciar
+
+					if (BestMatch.NumberPinyin != null)
+					{
+
+						BestMatch.NumberPinyin = BestMatch.NumberPinyin.Replace("1", "1 ");
+						BestMatch.NumberPinyin = BestMatch.NumberPinyin.Replace("2", "2 ");
+						BestMatch.NumberPinyin = BestMatch.NumberPinyin.Replace("3", "3 ");
+						BestMatch.NumberPinyin = BestMatch.NumberPinyin.Replace("4", "4 ");
+						//No existe entrada de audio para el tono 5
+						//BestMatch.NumberPinyin = BestMatch.NumberPinyin.Replace("5", "1 ");
+
+						string[] numberPinyinDecomposed = BestMatch.NumberPinyin.Split(' ');
+
+						foreach (string PinyinSillabe in numberPinyinDecomposed)
+						{
+							Word_Phrase toPronunce = new Word_Phrase();
+							toPronunce.NumberPinyin = PinyinSillabe.Trim();
+							this._pinyinToPronunce.Add((toPronunce));
+
+						}
+					}
+
+
+					switch (BestMatch.Level)
+					{
+
+						case 0:
+							btnWordMatch.BackColor = Color.GreenYellow;
+							break;
+						case 1: //HSK1
+							btnWordMatch.BackColor = Color.LimeGreen;
+							break;
+						case 2:
+							btnWordMatch.BackColor = Color.Green;
+							break;
+						case 3:
+							btnWordMatch.BackColor = Color.Aqua;
+							break;
+						case 4:
+							btnWordMatch.BackColor = Color.Blue;
+							break;
+						case 5:
+							btnWordMatch.BackColor = Color.Orange;
+							break;
+						case 6:
+							btnWordMatch.BackColor = Color.DarkOrange;
+							break;
+
+						case 7:
+							btnWordMatch.BackColor = Color.Crimson;
+							break;
+
+						case 20:
+							btnWordMatch.BackColor = Color.MediumVioletRed;
+							break;
+
+
+
+						default:
+							btnWordMatch.ForeColor = Color.Red;
+							break;
+					}
+
+
+					this.panel3.Controls.Add((btnWordMatch));
+
+					if (option == 0) this.toolTip1.SetToolTip(btnWordMatch, "[" + BestMatch.Level.ToString() + "]" + "\n[" + BestMatch.Pinyin + "]\n" + BestMatch.Description);
+
+					if (option == 1) this.toolTip1.SetToolTip(btnWordMatch, BestMatch.Pinyin);
+
+
+					//string[] descriptions = BestMatch.Description.Split(';');
+
+					//this.textBoxTranslated.Text = this.textBoxTranslated.Text + " " + descriptions[0];
+
+					Posx = Posx + BestMatch.Character.Length;
+
+					if (Posx > CaractersPerLine)
+					{
+						Posy++;
+						Posx = 0;
+					}
+
+					textCursor = textCursor + MaxMatch;
+				}
+
+				else
+				{
+					//No hay match
+
+
+					Button WordMatch = new Button();
+					WordMatch.Size = new Size(GeneratorButtonSize_Width, GeneratorButtonSize_Height);
+					WordMatch.Text = Input[textCursor].ToString();
+					WordMatch.Location = new Point(StartPositionPanel.X + Posx * GeneratorButtonSize_Width,
+						StartPositionPanel.Y + Posy * GeneratorButtonSize_Height);
+					//WordMatch.Font = textBoxInputText.Font;
+					WordMatch.ForeColor = Color.Red;
+
+					this.panel3.Controls.Add((WordMatch));
+					this.toolTip1.SetToolTip(WordMatch, "Not Match Found");
+
+
+					Posx = Posx + 1;
+
+					if (Posx > CaractersPerLine)
+					{
+						Posy++;
+						Posx = 0;
+					}
+
+					textCursor = textCursor + 1;
+				}
+			} //While Cursor
+		}
+
+
+		private void LoadWordsfromAssembly()
+		{
+
+			Reader_Phrases phr = new Reader_Phrases();
+			_phrasesWords = phr.AllWords();
+
+
+			Reader_Dictionary dic = new Reader_Dictionary();
+			_dictionaryWords = dic.AllWords();
+
+			//ArrayList see = dic.Words_Description_Contains("see");
+			//ArrayList shang  = dic.Words_Description_Contains("上");
+
+			_hsk1Words = Load_HSK(1);
+			_hsk2Words = Load_HSK(2);
+			HSK3_Words = Load_HSK(3);
+			HSK4_Words = Load_HSK(4);
+			HSK5_Words = Load_HSK(5);
+			HSK6_Words = Load_HSK(6);
+
+			Reader_Common300 csv = new Reader_Common300();
+			_common300Words = csv.AllWords();
+			Load_Included();
 			
 		}
+
+
+		private ArrayList Load_HSK(int i)
+		{
+			Reader_HSK hsk = new Reader_HSK();
+			hsk.Level = i;
+			return hsk.AllWords();
+		}
+		private void Load_Included()
+		{
+			Included_Words.Clear();
+
+			//Exclude for test Purposes
+			if (boolDictionary)
+			{
+
+				foreach (Word_Dictionary w in _dictionaryWords)
+				{
+					Included_Words.Add(w);
+				}
+			}
+
+			foreach (Word_HSK w in _hsk1Words)
+			{
+				Included_Words.Add(w);
+			}
+
+			foreach (Word_Phrase w in _phrasesWords)
+			{
+				if (w.Level == 11) Included_Words.Add(w);
+			}
+
+			foreach (Word_HSK w in _hsk2Words)
+			{
+				Included_Words.Add(w);
+			}
+
+			foreach (Word_Phrase w in _phrasesWords)
+			{
+				if (w.Level == 12) Included_Words.Add(w);
+			}
+
+			foreach (Word_HSK w in HSK3_Words)
+			{
+				Included_Words.Add(w);
+			}
+
+			foreach (Word_Phrase w in _phrasesWords)
+			{
+				if (w.Level == 13) Included_Words.Add(w);
+			}
+
+			foreach (Word_HSK w in HSK4_Words)
+			{
+				Included_Words.Add(w);
+			}
+
+			foreach (Word_HSK w in HSK5_Words)
+			{
+				Included_Words.Add(w);
+			}
+
+			foreach (Word_HSK w in HSK6_Words)
+			{
+				Included_Words.Add(w);
+			}
+
+
+			foreach (Word_Common300 w in _common300Words)
+			{
+				Included_Words.Add(w);
+			}
+
+			Word Coma = new Word();
+			Coma.Description = "";
+			Coma.Character = ",";
+			Coma.Pinyin = "";
+
+			Word AnotherComa = new Word();
+			AnotherComa.Description = "";
+			AnotherComa.Character = "，";
+			AnotherComa.Pinyin = "";
+
+
+			Word Point = new Word();
+			Point.Description = "";
+			Point.Character = ".";
+			Point.Pinyin = "";
+
+			Word ChinesePoint = new Word();
+			ChinesePoint.Description = "";
+			ChinesePoint.Character = "。";
+			ChinesePoint.Pinyin = "";
+
+			Included_Words.Add(Coma);
+			Included_Words.Add(AnotherComa);
+			Included_Words.Add(Point);
+			Included_Words.Add(ChinesePoint);
+
+		}
+
+		private void checkBox1_CheckedChanged(object sender, EventArgs e)
+			{
+				boolDictionary = !boolDictionary;
+				Load_Included();
+			}
+		
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using stdole;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace Subrip
         public static string HomePath = @"d:\Profiles\David\Desktop\SubRipOut\";
         public static string HomePath2 = @"C:\Users\Sibo David\Desktop\Panda\SubRip\";
         public static string Environment = "Home"; //Write Home when there.
+
+        public static string datasetpath = @"C:\Users\David\Desktop\RecogZi\dataset.csv";      
 
     }
 }
