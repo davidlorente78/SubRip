@@ -33,17 +33,12 @@ namespace Subrip
 		private ArrayList HSK5_Words = new ArrayList();
 		private ArrayList HSK6_Words = new ArrayList();
 
-		private bool boolGenerateWithPinyin = false;
-		private bool boolGenerateWithDescriptions = false;
-
 
 		private bool boolDictionary = false;
 
 		private Point StartPositionPanel = new Point(0, 0); //Panel 3 Included
 		private Int32 GeneratorButtonSize_Width = 45;
-		private Int32 GeneratorButtonSize_Height = 45;
-
-		
+		private Int32 GeneratorButtonSize_Height = 45;		
 
 		private FormRip m_InstanceRef = null;
 		public FormRip InstanceRef
@@ -113,10 +108,9 @@ namespace Subrip
 		private void Process()
 		{
 
-			this.Hide();
 			Bitmap bitmapFromScreen = BitmapService.BitmapFromScreen(CaptureArea.Width, CaptureArea.Height, CaptureArea.Left, CaptureArea.Top, this.comboBoxScreen.SelectedIndex);
 			pictureBox1.Image = bitmapFromScreen;
-			this.Show();
+			
 
 			projectionBitMapFilter = ProjectionService.ProjectandFilter(SelectedColor, Convert.ToInt32(this.numericUpDownColorMargin.Value), bitmapFromScreen);
 			ProjectionsToChartSeries(projectionBitMapFilter);

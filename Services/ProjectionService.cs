@@ -55,8 +55,8 @@ namespace SubripServices
 					}
 				}
 			}
-
-			return new Projection { HorizontalProjection = HorizontalProjection, VerticalProjection = VerticalProjection, Bitmap = bitmap };
+			//Inicializar Max y Min , MaxColumnValue= new Int32[bitmap.Width], MinColumnValue= new Int32[bitmap.Width]
+			return new Projection { HorizontalProjection = HorizontalProjection, VerticalProjection = VerticalProjection, Bitmap = bitmap  };
 		}
 
 		public static Projection ProjectandFilter(Color Color, Int32 Margin, Bitmap bitmap)
