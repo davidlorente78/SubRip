@@ -149,12 +149,12 @@ namespace Subrip
 						projectionBitMapFilter.CenteredBitmaps.Add(centered);
 
 
+						centered.Save(@"C:\Users\David\Desktop\Subrip\centered.bmp");
 
 						string zerosandones = DatasetGenerator.ToZerosOnesSequence(' ', centered);
 
 						var c = PredictionService.Predict(zerosandones);
 						predictions.Add(c);
-
 
 						x++;
 					}
@@ -201,13 +201,13 @@ namespace Subrip
 				PictureBox pc = new PictureBox
 				{
 					BorderStyle = BorderStyle.None,
-					Height = Convert.ToInt32(32),
-					Width = Convert.ToInt32(32),
+					Height = 32,
+					Width = 32,
 					SizeMode = PictureBoxSizeMode.Normal,
 
 					Top = 0,
 					Left = numseg * Convert.ToInt32(34), //80 pixels de separacion entre controles
-					Image = BitmapService.ResizeImage(bitmap, 32)
+					Image = bitmap //BitmapService.ResizeImage(bitmap, 32)
 				};
 
 				this.panel1.Controls.Add(pc);
@@ -219,8 +219,7 @@ namespace Subrip
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			this.numericUpDownRatioTh.Value = 0.78m; //Determinado mediante pruebas          
-			numericUpDownFontSize.Maximum = 300;
-			numericUpDownFontSize.Value = 32; //Debe estar relacionado con el tamaño de Heigh de Captura          
+			
 		}
 
 		private void button2_Click(object sender, EventArgs e)
@@ -287,7 +286,7 @@ namespace Subrip
 			{
 				if (tx.Text != String.Empty)
 				{
-
+					//TO CHECK
 					var zi = tx.Text;
 					var i = Convert.ToInt32(tx.Name);
 					var bit = projectionBitMapFilter.CenteredBitmaps[i];
@@ -317,15 +316,7 @@ namespace Subrip
 
 		private void btnTextAnalysis_Click(object sender, EventArgs e)
         {
-			//string inputText = getInputText();
-
-			//Text text = new Text(inputText);
-
-			//text.Show();
-
 			GenerateWith(0);
-
-
 		}
 
         private string getInputText()
@@ -352,11 +343,7 @@ namespace Subrip
 			_pinyinToPronunce.Clear();
 
 			Int32 FastCompute = 10;
-
-			//ButtonSize_Height = Convert.ToInt32(2 * textBoxInputText.Font.SizeInPoints);
-
-			//ButtonSize_Width = Convert.ToInt32(2 * textBoxInputText.Font.SizeInPoints);
-
+			
 			Int32 CaractersPerLine = panel1.Width / GeneratorButtonSize_Width - 1;
 
 			string Input = getInputText();
@@ -364,8 +351,6 @@ namespace Subrip
 			int Lenght = Input.Length;
 
 			int textCursor = 0;
-
-			int MaxLenght_WithMatch = 1;
 
 			Int32 Posx = 0;
 			Int32 Posy = 0;
@@ -552,8 +537,6 @@ namespace Subrip
 			Load_Included();
 			
 		}
-
-
 		private ArrayList Load_HSK(int i)
 		{
 			Reader_HSK hsk = new Reader_HSK();
@@ -652,7 +635,6 @@ namespace Subrip
 			Included_Words.Add(ChinesePoint);
 
 		}
-
 		private void checkBox1_CheckedChanged(object sender, EventArgs e)
 			{
 				boolDictionary = !boolDictionary;

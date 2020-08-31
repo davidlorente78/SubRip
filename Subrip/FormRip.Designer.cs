@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -50,8 +50,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.numericUpDownRatioTh = new System.Windows.Forms.NumericUpDown();
-            this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDownFontSize = new System.Windows.Forms.NumericUpDown();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnTextAnalysis = new System.Windows.Forms.Button();
@@ -71,7 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDistance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRatioTh)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrouped)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,7 +76,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(680, 18);
+            this.button2.Location = new System.Drawing.Point(153, 65);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(84, 29);
             this.button2.TabIndex = 6;
@@ -99,7 +96,7 @@
             0,
             0,
             0});
-            this.numericUpDownInterval.Location = new System.Drawing.Point(501, 36);
+            this.numericUpDownInterval.Location = new System.Drawing.Point(446, 36);
             this.numericUpDownInterval.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -123,7 +120,7 @@
             0,
             0,
             0});
-            this.numericUpDownColorMargin.Location = new System.Drawing.Point(105, 36);
+            this.numericUpDownColorMargin.Location = new System.Drawing.Point(153, 36);
             this.numericUpDownColorMargin.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -140,29 +137,29 @@
             // 
             // chart1
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea9);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(14, 369);
             this.chart1.Name = "chart1";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Name = "X";
-            this.chart1.Series.Add(series9);
-            this.chart1.Size = new System.Drawing.Size(618, 80);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Name = "X";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(502, 80);
             this.chart1.TabIndex = 13;
             this.chart1.Text = "chart1";
             // 
             // chart2
             // 
-            chartArea10.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea10);
-            this.chart2.Location = new System.Drawing.Point(640, 369);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            this.chart2.Location = new System.Drawing.Point(522, 369);
             this.chart2.Name = "chart2";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Name = "Y";
-            this.chart2.Series.Add(series10);
-            this.chart2.Size = new System.Drawing.Size(126, 80);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Name = "Y";
+            this.chart2.Series.Add(series4);
+            this.chart2.Size = new System.Drawing.Size(84, 80);
             this.chart2.TabIndex = 15;
             this.chart2.Text = "chart2";
             // 
@@ -172,7 +169,7 @@
             this.comboBoxScreen.Items.AddRange(new object[] {
             "Main",
             "Secondary"});
-            this.comboBoxScreen.Location = new System.Drawing.Point(605, 34);
+            this.comboBoxScreen.Location = new System.Drawing.Point(537, 34);
             this.comboBoxScreen.Name = "comboBoxScreen";
             this.comboBoxScreen.Size = new System.Drawing.Size(69, 28);
             this.comboBoxScreen.TabIndex = 22;
@@ -180,7 +177,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(497, 9);
+            this.label5.Location = new System.Drawing.Point(442, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 20);
             this.label5.TabIndex = 27;
@@ -189,7 +186,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(101, 9);
+            this.label6.Location = new System.Drawing.Point(149, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 20);
             this.label6.TabIndex = 28;
@@ -198,7 +195,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(601, 9);
+            this.label9.Location = new System.Drawing.Point(533, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 20);
             this.label9.TabIndex = 31;
@@ -207,7 +204,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(197, 9);
+            this.label10.Location = new System.Drawing.Point(245, 9);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 20);
             this.label10.TabIndex = 33;
@@ -216,7 +213,7 @@
             // numericUpDownDistance
             // 
             this.numericUpDownDistance.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.numericUpDownDistance.Location = new System.Drawing.Point(201, 36);
+            this.numericUpDownDistance.Location = new System.Drawing.Point(249, 36);
             this.numericUpDownDistance.Maximum = new decimal(new int[] {
             20,
             0,
@@ -235,13 +232,13 @@
             // 
             this.panel1.Location = new System.Drawing.Point(16, 465);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 80);
+            this.panel1.Size = new System.Drawing.Size(590, 80);
             this.panel1.TabIndex = 34;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(299, 9);
+            this.label11.Location = new System.Drawing.Point(347, 9);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 20);
             this.label11.TabIndex = 37;
@@ -256,7 +253,7 @@
             0,
             0,
             131072});
-            this.numericUpDownRatioTh.Location = new System.Drawing.Point(303, 36);
+            this.numericUpDownRatioTh.Location = new System.Drawing.Point(351, 36);
             this.numericUpDownRatioTh.Maximum = new decimal(new int[] {
             1,
             0,
@@ -271,33 +268,6 @@
             0,
             131072});
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(392, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 20);
-            this.label13.TabIndex = 41;
-            this.label13.Text = "Font Size";
-            // 
-            // numericUpDownFontSize
-            // 
-            this.numericUpDownFontSize.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.numericUpDownFontSize.Location = new System.Drawing.Point(396, 36);
-            this.numericUpDownFontSize.Maximum = new decimal(new int[] {
-            32,
-            0,
-            0,
-            0});
-            this.numericUpDownFontSize.Name = "numericUpDownFontSize";
-            this.numericUpDownFontSize.Size = new System.Drawing.Size(84, 26);
-            this.numericUpDownFontSize.TabIndex = 40;
-            this.numericUpDownFontSize.Value = new decimal(new int[] {
-            32,
-            0,
-            0,
-            0});
-            // 
             // toolTip1
             // 
             this.toolTip1.IsBalloon = true;
@@ -306,14 +276,14 @@
             // 
             this.panel2.Location = new System.Drawing.Point(16, 551);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(750, 80);
+            this.panel2.Size = new System.Drawing.Size(590, 80);
             this.panel2.TabIndex = 42;
             // 
             // btnTextAnalysis
             // 
             this.btnTextAnalysis.Image = global::Subrip.Properties.Resources.lupa;
             this.btnTextAnalysis.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnTextAnalysis.Location = new System.Drawing.Point(718, 54);
+            this.btnTextAnalysis.Location = new System.Drawing.Point(92, 52);
             this.btnTextAnalysis.Name = "btnTextAnalysis";
             this.btnTextAnalysis.Size = new System.Drawing.Size(40, 40);
             this.btnTextAnalysis.TabIndex = 45;
@@ -335,7 +305,7 @@
             // 
             this.btnAddtoDataset.Image = global::Subrip.Properties.Resources.add;
             this.btnAddtoDataset.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnAddtoDataset.Location = new System.Drawing.Point(680, 54);
+            this.btnAddtoDataset.Location = new System.Drawing.Point(93, 12);
             this.btnAddtoDataset.Name = "btnAddtoDataset";
             this.btnAddtoDataset.Size = new System.Drawing.Size(40, 40);
             this.btnAddtoDataset.TabIndex = 43;
@@ -347,7 +317,7 @@
             this.pictureBoxGrouped.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxGrouped.Location = new System.Drawing.Point(16, 279);
             this.pictureBoxGrouped.Name = "pictureBoxGrouped";
-            this.pictureBoxGrouped.Size = new System.Drawing.Size(750, 80);
+            this.pictureBoxGrouped.Size = new System.Drawing.Size(590, 80);
             this.pictureBoxGrouped.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxGrouped.TabIndex = 35;
             this.pictureBoxGrouped.TabStop = false;
@@ -367,7 +337,7 @@
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(16, 189);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(750, 80);
+            this.pictureBox2.Size = new System.Drawing.Size(590, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
@@ -397,7 +367,7 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(15, 99);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(750, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(591, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -405,7 +375,9 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(105, 66);
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(249, 70);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(174, 24);
@@ -418,7 +390,7 @@
             // 
             this.panel3.Location = new System.Drawing.Point(16, 637);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(750, 80);
+            this.panel3.Size = new System.Drawing.Size(590, 80);
             this.panel3.TabIndex = 43;
             // 
             // FormRip
@@ -426,15 +398,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(778, 748);
+            this.ClientSize = new System.Drawing.Size(613, 748);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnTextAnalysis);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.btnAddtoDataset);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.numericUpDownFontSize);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.numericUpDownRatioTh);
             this.Controls.Add(this.pictureBoxGrouped);
@@ -465,7 +435,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDistance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRatioTh)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownFontSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGrouped)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -499,8 +468,6 @@
         private System.Windows.Forms.PictureBox pictureBoxGrouped;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numericUpDownRatioTh;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDownFontSize;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAddtoDataset;

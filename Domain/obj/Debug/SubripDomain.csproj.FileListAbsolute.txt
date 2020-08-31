@@ -8,3 +8,4 @@ C:\Users\David\Desktop\Subrip\Domain\bin\Debug\SubripDomain.pdb
 C:\Users\David\Desktop\Subrip\Domain\obj\Debug\SubripDomain.csproj.CoreCompileInputs.cache
 C:\Users\David\Desktop\Subrip\Domain\obj\Debug\SubripDomain.dll
 C:\Users\David\Desktop\Subrip\Domain\obj\Debug\SubripDomain.pdb
+C:\Users\David\Desktop\Subrip\Domain\obj\Debug\SubripDomain.csprojAssemblyReference.cache

@@ -63,7 +63,7 @@ namespace SubripServices
 		{
 			Projection projection = new Projection();
 
-			Bitmap bitmapOut = new Bitmap(bitmap.Size.Width, bitmap.Size.Height);
+			Bitmap bitmapOut = new Bitmap(bitmap.Size.Width, bitmap.Size.Height,PixelFormat.Format32bppPArgb);
 
 			Int64[] VerticalProjection = new Int64[bitmap.Width];
 			Int64[] HorizontalProjection = new Int64[bitmap.Height];
@@ -82,7 +82,7 @@ namespace SubripServices
 
 			for (Int32 x = 0; x < bitmap.Width; x++)
 			{
-				//Se inicializar los maximos y minimos
+				//Se inicializan los maximos y minimos
 				MaxColumnValue[x] = 0;
 				MinColumnValue[x] = bitmap.Height;
 
